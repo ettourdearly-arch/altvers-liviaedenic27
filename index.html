@@ -1,1 +1,599 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8e9ed">
+<title>Livia's Edenic Arbor | #LiviaEdenic27</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --rose: #d889a0;
+  --deep-rose: #9d526c;
+  --blush: #f8e9ed;
+  --ivory: #fffaf7;
+  --mint: #e3f0e6;
+  --sage: #80977b;
+  --ink: #704858;
+  --line: rgba(196, 126, 149, .36);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 246, 247, .56),
+      rgba(230, 242, 231, .50),
+      rgba(250, 231, 237, .65)
+    ),
+    url("background.jpg") center top / cover fixed;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--deep-rose);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+a:hover { color: var(--sage); }
+
+.page {
+  width: min(100% - 28px, 760px);
+  margin: 0 auto;
+  padding: 30px 0 45px;
+}
+
+.panel {
+  background: rgba(255, 250, 247, .94);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: clamp(22px, 5vw, 42px);
+  margin-bottom: 22px;
+  box-shadow: 0 16px 40px rgba(152, 102, 119, .10);
+  text-align: center;
+  backdrop-filter: blur(7px);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .19em;
+  font-size: 12px;
+  color: var(--sage);
+  margin: 0 0 12px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+h1 {
+  font-size: clamp(28px, 6vw, 39px);
+  color: #8d405c;
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: clamp(23px, 5vw, 30px);
+  margin: 5px 0 14px;
+  color: #8e5267;
+}
+
+h3 {
+  font-size: 21px;
+  margin: 0 0 8px;
+}
+
+p {
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.intro-copy {
+  max-width: 590px;
+  margin: 12px auto;
+  color: #b56f85;
+  font-size: clamp(18px, 3.5vw, 21px);
+  font-style: italic;
+}
+
+.ornament {
+  color: var(--rose);
+  letter-spacing: .35em;
+  margin: 18px 0;
+}
+
+.pill {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 17px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: #fff3f5;
+  font-size: 17px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #dca0b1;
+  border-radius: 28px;
+  padding: 11px 19px;
+  background: #f9e8ed;
+  color: #8e4c64;
+  font: 500 16px 'Cormorant Garamond', serif;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.button:hover {
+  background: #f1d6df;
+  color: #754155;
+}
+
+.button.primary {
+  background: #d98da3;
+  color: white;
+  border-color: #d98da3;
+}
+
+.button.primary:hover { background: #bd718a; }
+
+.button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.link-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.date-note {
+  color: #a97687;
+  font-size: 16px;
+}
+
+.maker {
+  padding: clamp(14px, 3vw, 25px);
+}
+
+.canvas-wrap {
+  width: 100%;
+  max-width: 510px;
+  margin: 22px auto;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #f9eff1;
+  touch-action: pan-y;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  cursor: grab;
+}
+
+canvas:active { cursor: grabbing; }
+
+.upload-box {
+  border: 1px dashed #d9a1b1;
+  border-radius: 18px;
+  padding: 20px 12px;
+  background: rgba(255, 243, 246, .65);
+  margin: 14px 0;
+}
+
+input[type="file"] {
+  width: 100%;
+  max-width: 280px;
+  margin: 10px auto;
+  font: 14px 'Cormorant Garamond', serif;
+  color: var(--ink);
+}
+
+.control {
+  text-align: left;
+  margin: 18px auto;
+  max-width: 450px;
+}
+
+.control label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #c97f98;
+}
+
+.hint {
+  color: #9e7886;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.divider {
+  color: #d69aab;
+  margin: 20px 0;
+}
+
+.credit-card {
+  border: 1px solid rgba(196,126,149,.28);
+  border-radius: 20px;
+  padding: 18px 12px;
+  margin-top: 12px;
+  background: rgba(255, 242, 245, .65);
+}
+
+.credit-card p { margin-bottom: 0; }
+
+footer {
+  text-align: center;
+  padding: 8px 12px 20px;
+  color: #936e7c;
+  font-size: 15px;
+}
+
+@media (max-width: 520px) {
+  .page { width: min(100% - 20px, 760px); padding-top: 14px; }
+  .panel { border-radius: 23px; padding: 23px 18px; }
+  .maker { padding: 13px; }
+  .link-row .button { flex: 1 1 100%; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <!-- INTRODUCTION -->
+  <section class="panel" id="welcome">
+    <p class="eyebrow">A Sacred Jubilee Dreamscape</p>
+    <div class="ornament">✧ ❀ ✧</div>
+    <h1>#LiviaEdenic27</h1>
+
+    <p class="intro-copy">
+      A hallowed fascicle of tender oblation, aureate phantasies,
+      and an Arcadian arras of perennial blossoming. Within this
+      roseate sanctuary, Livia Nunes solemnizes her vigintiseptennial
+      jubilee amidst Eden's most immaculate beatitudes. Come, let us
+      assemble beneath the blossoming boughs to consecrate her natal
+      morn with our most fervent orisons. Let the solemnities unfurl
+      in holy bloom through #LiviaEdenic27! ♡
+    </p>
+
+    <div class="ornament">❧ ❀ ❧</div>
+
+    <p class="date-note">A celebration woven with love and wonder</p>
+
+    <div class="link-row">
+      <a class="button" href="https://t.me/ettourdearly"
+         target="_blank" rel="noopener">
+        ♡ Charmaine Fernsby
+      </a>
+      <a class="button" href="https://t.me/faaierie"
+         target="_blank" rel="noopener">
+        ✿ Jubilee Celebration Channel
+      </a>
+    </div>
+  </section>
+
+  <!-- TWIBBON MAKER -->
+  <section class="panel maker" id="twibbon">
+    <p class="eyebrow">A Keepsake of the Jubilee</p>
+    <h2>Frame Your Edenic Reverie</h2>
+    <p>
+      Adorn your portrait with Livia's garden of dreams.
+      Upload a photograph, adjust its placement, and keep
+      a little memento of this roseate celebration.
+    </p>
+
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="1280" height="1280"></canvas>
+    </div>
+
+    <div class="upload-box">
+      <h3>Choose Your Portrait</h3>
+      <p class="hint">A square photograph works beautifully.</p>
+      <input id="photoInput" type="file" accept="image/*">
+    </div>
+
+    <div class="control">
+      <label for="zoom">Portrait Magnification</label>
+      <input id="zoom" type="range" min="0.5" max="3"
+             step="0.01" value="1" disabled>
+    </div>
+
+    <div class="link-row">
+      <button class="button" id="reset" disabled>
+        Reset Portrait
+      </button>
+      <button class="button primary" id="download" disabled>
+        Download Twibbon PNG
+      </button>
+    </div>
+
+    <p class="hint">
+      Drag your portrait inside the frame to reposition it.
+    </p>
+    <p class="hint">
+      Your photograph is processed in your browser and is not uploaded by this page.
+    </p>
+  </section>
+
+  <!-- TELEGRAM LINKS -->
+  <section class="panel" id="connect">
+    <p class="eyebrow">Letters from the Garden</p>
+    <h2>Find the Celebrant</h2>
+    <p>
+      Extend your felicitations, leave a tender greeting,
+      or visit the little corner where this jubilee unfolds.
+    </p>
+
+    <div class="credit-card">
+      <h3>Charmaine Fernsby</h3>
+      <p>Meet the dreamer behind this celebration.</p>
+      <a href="https://t.me/ettourdearly"
+         target="_blank" rel="noopener">@eaudearly on Telegram ↗</a>
+    </div>
+
+    <div class="credit-card">
+      <h3>The Jubilee Sanctuary</h3>
+      <p>A gathering place for wishes and roseate memories.</p>
+      <a href="https://t.me/faaierie"
+         target="_blank" rel="noopener">Visit the celebration channel ↗</a>
+    </div>
+  </section>
+
+  <!-- CREDITS -->
+  <section class="panel" id="credits">
+    <p class="eyebrow">With Grateful Affection</p>
+    <h2>A Note of Acknowledgement</h2>
+    <p>
+      This little dreamscape blooms through the kindness,
+      artistry, and collaborative spirit of its cherished creators.
+    </p>
+
+    <div class="credit-card">
+      <h3>Art & Creative Direction</h3>
+      <p>With appreciation for the artistry of</p>
+      <a href="https://t.me/artlucas"
+         target="_blank" rel="noopener">@artlucas ↗</a>
+    </div>
+
+    <div class="credit-card">
+      <h3>Creative Collaboration</h3>
+      <p>A collaborative confection by</p>
+      <a href="https://t.me/trinketslab"
+         target="_blank" rel="noopener">@trinketslab ↗</a>
+    </div>
+
+    <div class="ornament">✧ ❀ ✧</div>
+    <p class="hint">Lovingly gathered for #LiviaEdenic27 ♡</p>
+  </section>
+
+  <footer>
+    An Edenic keepsake, made to be cherished.
+  </footer>
+</main>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const photoInput = document.getElementById("photoInput");
+const zoomSlider = document.getElementById("zoom");
+const resetButton = document.getElementById("reset");
+const downloadButton = document.getElementById("download");
+
+const frame = new Image();
+frame.src = "./twibbon.png";
+
+let photo = null;
+let photoX = 640;
+let photoY = 640;
+let zoom = 1;
+let baseScale = 1;
+let dragging = false;
+let lastX = 0;
+let lastY = 0;
+let frameReady = false;
+
+frame.onload = () => {
+  frameReady = true;
+  draw();
+};
+
+frame.onerror = () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#fff7f8";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#9d526c";
+  ctx.textAlign = "center";
+  ctx.font = "36px serif";
+  ctx.fillText("Unable to load twibbon.png", 640, 610);
+  ctx.font = "25px serif";
+  ctx.fillText("Check the filename in your repository.", 640, 660);
+};
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (photo) {
+    const scale = baseScale * zoom;
+    const w = photo.naturalWidth * scale;
+    const h = photo.naturalHeight * scale;
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, 0, canvas.width, canvas.height);
+    ctx.clip();
+    ctx.drawImage(photo, photoX - w / 2, photoY - h / 2, w, h);
+    ctx.restore();
+  } else {
+    ctx.fillStyle = "#f8e9ed";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#9d526c";
+    ctx.textAlign = "center";
+    ctx.font = "40px serif";
+    ctx.fillText("Your portrait will appear here", 640, 620);
+    ctx.font = "27px serif";
+    ctx.fillText("Upload a photograph to begin", 640, 675);
+  }
+
+  if (frameReady) {
+    ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
+  }
+}
+
+photoInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    alert("Please choose an image file.");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      photo = img;
+      zoom = 1;
+      zoomSlider.value = "1";
+
+      baseScale = Math.max(
+        canvas.width / photo.naturalWidth,
+        canvas.height / photo.naturalHeight
+      );
+
+      photoX = canvas.width / 2;
+      photoY = canvas.height / 2;
+
+      zoomSlider.disabled = false;
+      resetButton.disabled = false;
+      downloadButton.disabled = false;
+      draw();
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+zoomSlider.addEventListener("input", () => {
+  zoom = Number(zoomSlider.value);
+  draw();
+});
+
+resetButton.addEventListener("click", () => {
+  if (!photo) return;
+  zoom = 1;
+  zoomSlider.value = "1";
+  photoX = canvas.width / 2;
+  photoY = canvas.height / 2;
+  draw();
+});
+
+function pointerPosition(event) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (event.clientX - rect.left) * canvas.width / rect.width,
+    y: (event.clientY - rect.top) * canvas.height / rect.height
+  };
+}
+
+canvas.addEventListener("pointerdown", (event) => {
+  if (!photo) return;
+  dragging = true;
+  const point = pointerPosition(event);
+  lastX = point.x;
+  lastY = point.y;
+  canvas.setPointerCapture(event.pointerId);
+});
+
+canvas.addEventListener("pointermove", (event) => {
+  if (!dragging || !photo) return;
+  const point = pointerPosition(event);
+  photoX += point.x - lastX;
+  photoY += point.y - lastY;
+  lastX = point.x;
+  lastY = point.y;
+  draw();
+});
+
+canvas.addEventListener("pointerup", () => {
+  dragging = false;
+});
+
+canvas.addEventListener("pointercancel", () => {
+  dragging = false;
+});
+
+downloadButton.addEventListener("click", () => {
+  if (!photo || !frameReady) {
+    alert("Please upload a portrait and wait for the frame to load.");
+    return;
+  }
+
+  canvas.toBlob(async (blob) => {
+    if (!blob) {
+      alert("The image could not be prepared. Please try again.");
+      return;
+    }
+
+    const file = new File([blob], "liviaedenic27.png", {
+      type: "image/png"
+    });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({
+          files: [file],
+          title: "My #LiviaEdenic27 Twibbon"
+        });
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") return;
+      }
+    }
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "liviaedenic27.png";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+  }, "image/png");
+});
+
+draw();
+</script>
+</body>
+</html>
+
