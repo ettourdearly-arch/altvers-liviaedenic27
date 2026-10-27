@@ -13,12 +13,15 @@
 
 <style>
 :root {
-  --rose: #f58ba5;
-  --pale: #fce8ed;
+  --rose: #d98da3;
+  --petal: #f3cbd7;
+  --pale: #f9e8ed;
+  --sage: #829778;
+  --leaf: #a4b18c;
   --wine: #633044;
   --muted: #a77c89;
-  --line: rgba(248,173,193,.58);
   --ivory: #fffaf8;
+  --line: rgba(248,173,193,.55);
 }
 
 * {
@@ -32,7 +35,7 @@ html {
 
 body {
   margin: 0;
-  padding: 20px 17px;
+  padding: 21px 17px;
   min-height: 100vh;
   color: var(--wine);
   background-color: #f8e8ec;
@@ -44,22 +47,25 @@ body {
   font-size: 18px;
 }
 
+a {
+  color: inherit;
+}
+
 .wrap {
   width: 100%;
   max-width: 460px;
-  margin: auto;
+  margin: 0 auto;
 }
 
-/* Main cards */
+/* INTRODUCTION */
 
 .info-card,
-.card,
-.extra-card {
+.editor-card {
   background: rgba(255,250,248,.96);
   border: 1px solid var(--line);
   border-radius: 27px;
   box-shadow: 0 10px 25px rgba(166,87,112,.07);
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .info-card {
@@ -101,9 +107,9 @@ body {
   line-height: 1.45;
 }
 
-/* Twibbon editor */
+/* TWIBBON EDITOR */
 
-.card {
+.editor-card {
   padding: 19px;
 }
 
@@ -142,7 +148,7 @@ body {
   display: block;
   width: 100%;
   padding: 12px;
-  border: 2px solid #f8d4df;
+  border: 2px solid var(--petal);
   border-radius: 16px;
   background: #fff0f2;
   color: var(--wine);
@@ -216,173 +222,248 @@ body {
   text-align: center;
 }
 
-/* Horizontal link carousels */
+/* BOTANICAL GARDEN */
 
-.extra-card {
-  padding: 17px;
+.garden {
+  position: relative;
+  margin: 0 0 15px;
+  padding: 20px 0 7px;
   overflow: hidden;
+  text-align: center;
+  isolation: isolate;
 }
 
-.extra-card h3 {
-  margin: 0 0 6px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  line-height: 1.3;
+.garden-heading {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0;
 }
 
-.section-note {
-  margin: 0 0 12px;
-  color: var(--muted);
-  font-size: .96rem;
-  line-height: 1.4;
+.garden-kicker {
+  margin: 0 0 5px;
+  color: var(--sage);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
 }
 
-.carousel {
-  display: flex;
-  gap: 11px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 2px 1px 9px;
+.garden-title {
   margin: 0;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: #edb7c6 transparent;
-}
-
-.carousel::-webkit-scrollbar {
-  height: 4px;
-}
-
-.carousel::-webkit-scrollbar-thumb {
-  background: #edb7c6;
-  border-radius: 10px;
-}
-
-.carousel-item {
-  flex: 0 0 83%;
-  min-width: 0;
-  min-height: 105px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 14px 17px;
-  text-decoration: none;
   color: var(--wine);
-  background: linear-gradient(145deg,#fff1f3,#fffaf7);
-  border: 1px solid rgba(248,173,193,.65);
-
-  /* Different organic flower-petal shape */
-  border-radius: 34px 20px 34px 20px / 20px 34px 20px 34px;
-
-  scroll-snap-align: start;
-  transition: transform .25s, background .25s, box-shadow .25s;
-}
-
-.carousel-item:active {
-  transform: scale(.97);
-}
-
-.carousel-item:hover {
-  background: #ffe9ef;
-  box-shadow: 0 5px 15px rgba(166,87,112,.08);
-}
-
-.item-title {
-  margin: 0 0 4px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.item-description {
-  margin: 0;
-  color: var(--muted);
-  font-size: .98rem;
+  font-size: 1.55rem;
+  font-weight: 600;
   line-height: 1.3;
 }
 
-.swipe-hint {
-  margin: 5px 2px 0;
-  color: #ae8490;
-  font-size: .86rem;
+.garden-subtitle {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
   font-style: italic;
-  text-align: right;
+}
+
+/* SVG vine illustration */
+
+.vine-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  margin: 0 auto;
+}
+
+.vine-stem {
+  fill: none;
+  stroke: #8ca184;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 850;
+  stroke-dashoffset: 850;
+}
+
+.leaf {
+  fill: #a6b994;
+  stroke: #829778;
+  stroke-width: .65;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(.2) rotate(-20deg);
+}
+
+.leaf-vein {
+  fill: none;
+  stroke: #738d70;
+  stroke-width: .7;
+  stroke-linecap: round;
+  opacity: 0;
+}
+
+.flower {
+  cursor: pointer;
+  outline: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(.05) rotate(-18deg);
+  transition: filter .25s ease;
+}
+
+.flower:focus-visible .flower-center {
+  stroke: #633044;
+  stroke-width: 2.5;
+}
+
+.flower:hover {
+  filter: drop-shadow(0 2px 5px rgba(166,87,112,.25));
+}
+
+.flower:hover .flower-petals {
+  transform: scale(1.1);
+}
+
+.flower-petals {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform .3s ease;
+}
+
+.petal {
+  fill: #f3cbd7;
+  stroke: #d98da3;
+  stroke-width: .8;
+}
+
+.petal.alt {
+  fill: #f8dce3;
+}
+
+.petal.inner {
+  fill: #f9e8ed;
+}
+
+.flower-center {
+  fill: #d7b96e;
+  stroke: #c7a85b;
+  stroke-width: .8;
+}
+
+.flower-label {
+  fill: #633044;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.flower-caption {
+  fill: #a77c89;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 10px;
+  font-style: italic;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+/* Reveal when scrolling into view */
+
+.motion {
+  opacity: 0;
+  transform: translateY(38px);
+  transition:
+    opacity .9s ease,
+    transform .9s cubic-bezier(.16,1,.3,1);
+}
+
+.motion.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.garden.is-visible .vine-stem {
+  animation: drawVine 2.1s cubic-bezier(.55,.05,.25,1) forwards;
+}
+
+.garden.is-visible .leaf {
+  animation: growLeaf .65s cubic-bezier(.2,1.5,.5,1) forwards;
+}
+
+.garden.is-visible .leaf-vein {
+  animation: appear .5s ease forwards;
+}
+
+.garden.is-visible .flower {
+  animation: blossom .9s cubic-bezier(.2,1.5,.4,1) forwards;
+}
+
+.garden.is-visible .flower:nth-of-type(2) {
+  animation-delay: .35s;
+}
+
+.garden.is-visible .flower:nth-of-type(3) {
+  animation-delay: .65s;
+}
+
+.garden.is-visible .flower:nth-of-type(4) {
+  animation-delay: .9s;
+}
+
+.garden.is-visible .flower:nth-of-type(5) {
+  animation-delay: 1.15s;
+}
+
+.garden.is-visible .leaf:nth-of-type(2) {
+  animation-delay: .25s;
+}
+
+.garden.is-visible .leaf:nth-of-type(3) {
+  animation-delay: .45s;
+}
+
+.garden.is-visible .leaf:nth-of-type(4) {
+  animation-delay: .65s;
+}
+
+@keyframes drawVine {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes growLeaf {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes blossom {
+  0% {
+    opacity: 0;
+    transform: scale(.05) rotate(-22deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.13) rotate(4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes appear {
+  to { opacity: .85; }
 }
 
 .footer-note {
-  margin: 23px 8px 12px;
+  margin: 22px 8px 12px;
   color: var(--muted);
   font-size: 1rem;
   font-style: italic;
   line-height: 1.5;
   text-align: center;
-}
-
-/* Noticeable scroll entrance motion */
-
-.motion {
-  opacity: 0;
-  transform: translateY(55px) scale(.96);
-  filter: blur(3px);
-  transition:
-    opacity .85s ease,
-    transform .85s cubic-bezier(.16,1,.3,1),
-    filter .85s ease;
-  will-change: opacity, transform, filter;
-}
-
-.motion.from-left {
-  transform: translateX(-65px) scale(.96);
-}
-
-.motion.from-right {
-  transform: translateX(65px) scale(.96);
-}
-
-.motion.is-visible {
-  opacity: 1;
-  transform: translate(0,0) scale(1);
-  filter: blur(0);
-}
-
-/* Carousel bubbles enter one after another */
-
-.carousel.motion .carousel-item {
-  opacity: 0;
-  transform: translateY(25px) scale(.96);
-  transition:
-    opacity .65s ease,
-    transform .65s cubic-bezier(.16,1,.3,1),
-    background .25s;
-}
-
-.carousel.motion.is-visible .carousel-item {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.carousel.motion.is-visible .carousel-item:nth-child(2) {
-  transition-delay: .14s;
-}
-
-/* Accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .motion,
-  .motion.from-left,
-  .motion.from-right,
-  .carousel.motion .carousel-item {
-    opacity: 1;
-    transform: none;
-    filter: none;
-    transition: none;
-  }
 }
 
 @media (max-width: 480px) {
@@ -395,12 +476,8 @@ body {
     padding: 23px 19px;
   }
 
-  .card {
+  .editor-card {
     padding: 17px;
-  }
-
-  .extra-card {
-    padding: 15px;
   }
 
   .campaign-name {
@@ -411,13 +488,48 @@ body {
     font-size: .94rem;
   }
 
-  .extra-card h3 {
-    font-size: 1.22rem;
+  .garden {
+    margin-bottom: 12px;
+    padding-top: 18px;
   }
 
-  .carousel-item {
-    flex-basis: 83%;
-    min-height: 100px;
+  .garden-title {
+    font-size: 1.42rem;
+  }
+
+  .garden-subtitle {
+    font-size: .96rem;
+  }
+
+  .flower-label {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .motion {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .vine-stem {
+    stroke-dashoffset: 0;
+    animation: none !important;
+  }
+
+  .flower,
+  .leaf {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .leaf-vein {
+    opacity: .85;
+    animation: none !important;
   }
 }
 </style>
@@ -427,7 +539,7 @@ body {
 <div class="wrap">
 
   <!-- INTRODUCTION -->
-  <section class="info-card motion" data-motion="up">
+  <section class="info-card motion">
     <img
       class="logo"
       src="livia-profile.jpg"
@@ -453,7 +565,7 @@ body {
   </section>
 
   <!-- TWIBBON MAKER -->
-  <section class="card motion" data-motion="right">
+  <section class="editor-card motion">
     <div class="canvas-wrap" id="canvasWrap">
       <canvas id="photoCanvas" width="1080" height="1080"></canvas>
       <canvas id="frameCanvas" width="1080" height="1080"></canvas>
@@ -483,67 +595,224 @@ body {
     </p>
   </section>
 
-  <!-- CELEBRANT CAROUSEL -->
-  <section class="extra-card motion" data-motion="left">
-    <h3>✧ Find the Celebrant</h3>
-    <p class="section-note">A little way to reach the celebrant.</p>
-
-    <div class="carousel motion" data-motion="up" aria-label="Celebrant links">
-      <a class="carousel-item"
-         href="https://t.me/ettourdearly"
-         target="_blank" rel="noopener noreferrer">
-        <p class="item-title">Charmaine Fernsby</p>
-        <p class="item-description">Visit my personal Telegram account.</p>
-      </a>
-
-      <a class="carousel-item"
-         href="https://t.me/faaierie"
-         target="_blank" rel="noopener noreferrer">
-        <p class="item-title">Jubilee Celebration Channel</p>
-        <p class="item-description">Visit the celebration sanctuary.</p>
-      </a>
+  <!-- CELEBRANT: CLIMBING VINE -->
+  <section class="garden motion" aria-label="Find the Celebrant">
+    <div class="garden-heading">
+      <p class="garden-kicker">A little path through the garden</p>
+      <h2 class="garden-title">Find the Celebrant</h2>
+      <p class="garden-subtitle">follow the blossoms to find your way ♡</p>
     </div>
 
-    <p class="swipe-hint">Swipe to discover more ♡</p>
+    <svg class="vine-art" viewBox="0 0 360 245"
+         role="group" aria-label="A flowering vine with links to the celebrant">
+
+      <path class="vine-stem"
+        d="M12 204
+           C45 197 48 166 77 171
+           C109 178 105 210 137 197
+           C164 186 158 148 189 145
+           C220 141 222 175 248 160
+           C278 142 274 111 302 111
+           C324 111 329 124 348 105"/>
+
+      <path class="vine-stem"
+        d="M77 171 C73 148 83 132 102 122
+           M137 197 C127 217 130 226 144 233
+           M189 145 C187 119 201 105 221 99
+           M248 160 C262 181 279 184 296 177
+           M302 111 C296 88 305 72 323 63"/>
+
+      <!-- Leaves -->
+      <g class="leaf">
+        <path d="M68 167 Q49 145 40 155 Q43 174 68 167Z"/>
+      </g>
+      <path class="leaf-vein" d="M43 157 Q54 162 68 167"/>
+
+      <g class="leaf">
+        <path d="M95 177 Q113 158 123 170 Q116 188 95 177Z"/>
+      </g>
+      <path class="leaf-vein" d="M119 171 Q107 174 95 177"/>
+
+      <g class="leaf">
+        <path d="M137 196 Q116 194 114 207 Q128 218 137 196Z"/>
+      </g>
+      <path class="leaf-vein" d="M117 206 Q126 202 137 196"/>
+
+      <g class="leaf">
+        <path d="M188 145 Q168 124 159 139 Q166 153 188 145Z"/>
+      </g>
+      <path class="leaf-vein" d="M163 139 Q175 145 188 145"/>
+
+      <g class="leaf">
+        <path d="M245 159 Q264 138 275 150 Q268 166 245 159Z"/>
+      </g>
+      <path class="leaf-vein" d="M271 151 Q258 156 245 159"/>
+
+      <g class="leaf">
+        <path d="M302 111 Q283 94 274 105 Q283 120 302 111Z"/>
+      </g>
+      <path class="leaf-vein" d="M278 106 Q291 110 302 111"/>
+
+      <!-- Flower one: personal account -->
+      <a href="https://t.me/ettourdearly"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Visit Charmaine Fernsby on Telegram"
+         style="text-decoration:none">
+        <g class="flower" tabindex="0" role="link"
+           aria-label="Charmaine Fernsby">
+          <g class="flower-petals">
+            <ellipse class="petal" cx="102" cy="122" rx="7" ry="13" transform="rotate(0 102 122)"/>
+            <ellipse class="petal alt" cx="102" cy="122" rx="7" ry="13" transform="rotate(45 102 122)"/>
+            <ellipse class="petal" cx="102" cy="122" rx="7" ry="13" transform="rotate(90 102 122)"/>
+            <ellipse class="petal alt" cx="102" cy="122" rx="7" ry="13" transform="rotate(135 102 122)"/>
+            <circle class="flower-center" cx="102" cy="122" r="5"/>
+          </g>
+          <text class="flower-label" x="101" y="146">Charmaine Fernsby</text>
+          <text class="flower-caption" x="101" y="158">personal Telegram</text>
+        </g>
+      </a>
+
+      <!-- Flower two: celebration channel -->
+      <a href="https://t.me/faaierie"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Visit the Jubilee Celebration Channel"
+         style="text-decoration:none">
+        <g class="flower" tabindex="0" role="link"
+           aria-label="Jubilee Celebration Channel">
+          <g class="flower-petals">
+            <ellipse class="petal alt" cx="221" cy="99" rx="7" ry="13"/>
+            <ellipse class="petal" cx="221" cy="99" rx="7" ry="13" transform="rotate(45 221 99)"/>
+            <ellipse class="petal alt" cx="221" cy="99" rx="7" ry="13" transform="rotate(90 221 99)"/>
+            <ellipse class="petal" cx="221" cy="99" rx="7" ry="13" transform="rotate(135 221 99)"/>
+            <circle class="flower-center" cx="221" cy="99" r="5"/>
+          </g>
+          <text class="flower-label" x="220" y="75">Jubilee Channel</text>
+          <text class="flower-caption" x="220" y="64">celebration sanctuary</text>
+        </g>
+      </a>
+
+      <!-- Small wildflower -->
+      <g class="flower" aria-hidden="true">
+        <g class="flower-petals">
+          <ellipse class="petal" cx="322" cy="63" rx="4" ry="8"/>
+          <ellipse class="petal alt" cx="322" cy="63" rx="4" ry="8" transform="rotate(60 322 63)"/>
+          <ellipse class="petal" cx="322" cy="63" rx="4" ry="8" transform="rotate(120 322 63)"/>
+          <circle class="flower-center" cx="322" cy="63" r="3"/>
+        </g>
+      </g>
+
+      <text x="14" y="224"
+        style="fill:#a77c89;font:italic 11px 'Cormorant Garamond',serif">
+        a flowering path
+      </text>
+    </svg>
   </section>
 
-  <!-- CREDITS CAROUSEL -->
-  <section class="extra-card motion" data-motion="right">
-    <h3>✿ Gratitude in Bloom</h3>
-    <p class="section-note">
-      With gratitude for the hands that helped this dream bloom.
-    </p>
-
-    <div class="carousel motion" data-motion="up" aria-label="Credits">
-      <a class="carousel-item"
-         href="https://t.me/artlucas"
-         target="_blank" rel="noopener noreferrer">
-        <p class="item-title">@artlucas</p>
-        <p class="item-description">With appreciation for the artistry.</p>
-      </a>
-
-      <a class="carousel-item"
-         href="https://t.me/trinketslab"
-         target="_blank" rel="noopener noreferrer">
-        <p class="item-title">@trinketslab</p>
-        <p class="item-description">With gratitude for the collaboration.</p>
-      </a>
+  <!-- TWIG OF GRATITUDE -->
+  <section class="garden motion" aria-label="Gratitude in Bloom">
+    <div class="garden-heading">
+      <p class="garden-kicker">With affection and appreciation</p>
+      <h2 class="garden-title">Gratitude in Bloom</h2>
+      <p class="garden-subtitle">each blossom holds a little gratitude ♡</p>
     </div>
 
-    <p class="swipe-hint">Swipe to discover more ♡</p>
+    <svg class="vine-art" viewBox="0 0 360 220"
+         role="group" aria-label="Flowering branches linking to the creative credits">
+
+      <path class="vine-stem"
+        d="M12 178
+           C49 185 64 150 94 155
+           C123 160 127 187 157 171
+           C185 156 181 126 213 126
+           C247 126 250 155 278 137
+           C301 122 321 129 348 105"/>
+
+      <path class="vine-stem"
+        d="M94 155 C88 131 96 115 116 104
+           M157 171 C148 190 151 202 169 207
+           M213 126 C211 103 226 89 246 86
+           M278 137 C291 155 309 157 323 147"/>
+
+      <!-- Leaves -->
+      <g class="leaf">
+        <path d="M90 155 Q71 137 62 149 Q68 165 90 155Z"/>
+      </g>
+      <path class="leaf-vein" d="M66 150 Q79 153 90 155"/>
+
+      <g class="leaf">
+        <path d="M157 171 Q138 159 131 173 Q143 185 157 171Z"/>
+      </g>
+      <path class="leaf-vein" d="M135 174 Q147 174 157 171"/>
+
+      <g class="leaf">
+        <path d="M213 126 Q193 109 184 122 Q193 138 213 126Z"/>
+      </g>
+      <path class="leaf-vein" d="M188 123 Q200 127 213 126"/>
+
+      <g class="leaf">
+        <path d="M278 137 Q298 117 306 130 Q300 146 278 137Z"/>
+      </g>
+      <path class="leaf-vein" d="M302 131 Q290 136 278 137"/>
+
+      <!-- Flower: art credits -->
+      <a href="https://t.me/artlucas"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Visit artlucas on Telegram"
+         style="text-decoration:none">
+        <g class="flower" tabindex="0" role="link" aria-label="artlucas">
+          <g class="flower-petals">
+            <ellipse class="petal alt" cx="116" cy="104" rx="7" ry="13"/>
+            <ellipse class="petal" cx="116" cy="104" rx="7" ry="13" transform="rotate(45 116 104)"/>
+            <ellipse class="petal alt" cx="116" cy="104" rx="7" ry="13" transform="rotate(90 116 104)"/>
+            <ellipse class="petal" cx="116" cy="104" rx="7" ry="13" transform="rotate(135 116 104)"/>
+            <circle class="flower-center" cx="116" cy="104" r="5"/>
+          </g>
+          <text class="flower-label" x="116" y="83">@artlucas</text>
+          <text class="flower-caption" x="116" y="71">artistry</text>
+        </g>
+      </a>
+
+      <!-- Flower: Trinkets Lab -->
+      <a href="https://t.me/trinketslab"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Visit Trinkets Lab on Telegram"
+         style="text-decoration:none">
+        <g class="flower" tabindex="0" role="link" aria-label="trinketslab">
+          <g class="flower-petals">
+            <ellipse class="petal" cx="246" cy="86" rx="7" ry="13"/>
+            <ellipse class="petal alt" cx="246" cy="86" rx="7" ry="13" transform="rotate(45 246 86)"/>
+            <ellipse class="petal" cx="246" cy="86" rx="7" ry="13" transform="rotate(90 246 86)"/>
+            <ellipse class="petal alt" cx="246" cy="86" rx="7" ry="13" transform="rotate(135 246 86)"/>
+            <circle class="flower-center" cx="246" cy="86" r="5"/>
+          </g>
+          <text class="flower-label" x="246" y="65">@trinketslab</text>
+          <text class="flower-caption" x="246" y="53">collaboration</text>
+        </g>
+      </a>
+
+      <!-- Small blossom -->
+      <g class="flower" aria-hidden="true">
+        <g class="flower-petals">
+          <ellipse class="petal" cx="169" cy="207" rx="4" ry="8"/>
+          <ellipse class="petal alt" cx="169" cy="207" rx="4" ry="8" transform="rotate(60 169 207)"/>
+          <ellipse class="petal" cx="169" cy="207" rx="4" ry="8" transform="rotate(120 169 207)"/>
+          <circle class="flower-center" cx="169" cy="207" r="3"/>
+        </g>
+      </g>
+    </svg>
   </section>
 
   <!-- FINAL WISH -->
-  <p class="footer-note motion" data-motion="up">
+  <p class="footer-note motion">
     <em>A bound anthology of gentle hopes, preserved for Livia Nunes ♡</em>
   </p>
 
 </div>
 
 <script>
-/* TWIBBON EDITOR */
-const SIZE = 1080;
+/* TWIBBON MAKER */
 
+const SIZE = 1080;
 const photoCanvas = document.getElementById("photoCanvas");
 const frameCanvas = document.getElementById("frameCanvas");
 const photoCtx = photoCanvas.getContext("2d");
@@ -656,6 +925,7 @@ resetBtn.addEventListener("click", () => {
 
 function getCanvasPoint(event) {
   const rect = canvasWrap.getBoundingClientRect();
+
   return {
     x: (event.clientX - rect.left) * SIZE / rect.width,
     y: (event.clientY - rect.top) * SIZE / rect.height
@@ -734,39 +1004,28 @@ downloadBtn.addEventListener("click", async () => {
   }, "image/png");
 });
 
-/* REPLAYABLE SCROLL MOTION */
+/* SCROLL MOTION */
+
 const motionItems = document.querySelectorAll(".motion");
 
 if ("IntersectionObserver" in window) {
-  const motionObserver = new IntersectionObserver(entries => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
       } else {
-        // Remove the class when it leaves the viewport so
-        // the entrance animation can replay on the next scroll.
         entry.target.classList.remove("is-visible");
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: "0px 0px -30px 0px"
+    threshold: 0.15,
+    rootMargin: "0px 0px -25px 0px"
   });
 
-  motionItems.forEach(item => {
-    const direction = item.dataset.motion;
-
-    if (direction === "left") item.classList.add("from-left");
-    if (direction === "right") item.classList.add("from-right");
-
-    motionObserver.observe(item);
-  });
+  motionItems.forEach(item => observer.observe(item));
 } else {
   motionItems.forEach(item => item.classList.add("is-visible"));
 }
-
-drawPhoto();
-drawFrame();
 </script>
 </body>
 </html>
