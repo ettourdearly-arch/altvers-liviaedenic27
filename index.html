@@ -4,55 +4,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f8e8ec">
-<title>Livia's Edenic Arbor | #LiviaEdenic27</title>
+<meta name="theme-color" content="#f7e5e9">
+<title>Livia's Edenic Arbor — #LiviaEdenic27</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
 <style>
 :root {
+  --wine: #57273d;
+  --wine-dark: #432034;
   --rose: #d98da3;
-  --petal: #f3cbd7;
-  --pale: #f9e8ed;
-  --sage: #829778;
-  --leaf: #a4b18c;
-  --wine: #633044;
-  --muted: #a77c89;
-  --ivory: #fffaf8;
-  --line: rgba(248,173,193,.55);
+  --petal: #f5cbd8;
+  --sage: #718968;
+  --leaf: #b5c8a5;
+  --muted: #76495b;
+  --ivory: #fffaf6;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 html {
   min-height: 100%;
   scroll-behavior: smooth;
-  background: #f8e8ec;
+  background: #f7e5e9;
 }
 
 body {
   position: relative;
   isolation: isolate;
-  margin: 0;
-  padding: 21px 17px;
   min-height: 100vh;
+  margin: 0;
+  padding: 22px 17px 28px;
   color: var(--wine);
-  background: transparent;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 18px;
+  background: transparent;
 }
 
-/* ONE CONTINUOUS BACKGROUND */
+/*
+  ONE FIXED WALLPAPER:
+  It stays behind the page while the content scrolls.
+  The image is never tiled, so there are no repeating seams.
+*/
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  background-color: #f7e5e9;
   background-image: url("background-2.JPEG");
   background-position: center center;
   background-repeat: no-repeat;
@@ -61,10 +65,10 @@ body::before {
 
 a {
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .wrap {
-  position: relative;
   width: 100%;
   max-width: 460px;
   margin: 0 auto;
@@ -72,66 +76,66 @@ a {
 
 /* INTRODUCTION */
 
-.info-card,
-.editor-card {
-  background: rgba(255,250,248,.82);
-  border: 1px solid var(--line);
-  border-radius: 27px;
-  box-shadow: 0 10px 25px rgba(166,87,112,.07);
-  margin-bottom: 16px;
-}
-
-.info-card {
+.intro {
+  margin-bottom: 24px;
   padding: 25px 21px;
   text-align: center;
+  background: rgba(255,250,247,.88);
+  border: 1px solid rgba(217,141,163,.65);
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(87,39,61,.08);
 }
 
 .logo {
-  width: 86px;
-  height: 86px;
   display: block;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 15px;
   object-fit: cover;
-  margin: 0 auto 14px;
+  border: 3px solid var(--rose);
   border-radius: 50%;
-  border: 4px solid var(--rose);
-  background: var(--pale);
+  background: #f8e8ed;
 }
 
 .campaign-name {
   margin: 0 0 12px;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.25;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 .campaign-desc {
-  margin: 0 0 13px;
-  color: var(--wine);
-  font-size: .96rem;
+  margin: 0;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .campaign-date {
-  margin: 14px 0 0;
+  margin: 15px 0 0;
   color: var(--muted);
-  font-size: 1.02rem;
-  line-height: 1.45;
+  font-size: 1.05rem;
 }
 
 /* TWIBBON MAKER */
 
-.editor-card {
-  padding: 19px;
+.editor {
+  margin-bottom: 30px;
+  padding: 17px;
+  background: rgba(255,250,247,.92);
+  border: 1px solid rgba(217,141,163,.7);
+  border-radius: 24px;
+  box-shadow: 0 8px 25px rgba(87,39,61,.08);
 }
 
 .canvas-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 19px;
+  border-radius: 16px;
   background: transparent;
   touch-action: none;
   cursor: grab;
@@ -144,9 +148,9 @@ a {
 .canvas-wrap canvas {
   position: absolute;
   inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
   touch-action: none;
 }
 
@@ -166,23 +170,17 @@ a {
   margin-top: 17px;
 }
 
-.file-btn {
+.upload-label {
   display: block;
-  width: 100%;
   padding: 12px;
-  border: 2px solid var(--petal);
-  border-radius: 16px;
-  background: #fff0f2;
+  border: 1px solid #d98da3;
+  border-radius: 14px;
+  background: #fff0f3;
   color: var(--wine);
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
-  transition: background .25s, transform .25s;
-}
-
-.file-btn:active {
-  transform: scale(.98);
 }
 
 #photoInput {
@@ -193,8 +191,7 @@ a {
   display: flex;
   justify-content: space-between;
   margin-bottom: 6px;
-  color: var(--muted);
-  font-size: 1.05rem;
+  color: var(--wine);
 }
 
 #zoomRange {
@@ -209,185 +206,192 @@ a {
 }
 
 .btn {
-  min-height: 58px;
+  min-height: 53px;
   padding: 10px 7px;
-  border: 2px solid #e5dfb1;
-  border-radius: 17px;
-  background: #f5f1df;
+  border: 1px solid #d7c995;
+  border-radius: 14px;
+  background: #f5f0dc;
   color: var(--wine);
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform .2s, opacity .2s;
-}
-
-.btn:active {
-  transform: scale(.97);
 }
 
 .btn.download {
-  border-color: #f6d3dc;
-  background: linear-gradient(110deg,#facbd6,#f4dce0 55%,#dfe3aa);
-  color: var(--wine);
+  border-color: #e6a9bd;
+  background: linear-gradient(120deg, #f5cbd7, #f6e1df, #e0e6c9);
 }
 
 .btn:disabled {
-  opacity: .48;
+  opacity: .5;
   cursor: not-allowed;
 }
 
 .hint {
-  margin: 15px 0 0;
+  margin: 14px 0 0;
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
 }
 
-/* BOTANICAL SECTIONS */
+/* GARDEN SECTIONS */
 
 .garden {
   position: relative;
-  margin: 0 0 18px;
-  padding: 20px 0 7px;
+  margin: 0 -7px 29px;
+  padding: 20px 0 5px;
   overflow: hidden;
   text-align: center;
-  isolation: isolate;
 }
 
 .garden-heading {
   position: relative;
   z-index: 2;
+  padding: 0 7px;
 }
 
-.garden-kicker {
-  margin: 0 0 5px;
-  color: var(--sage);
-  font-size: .76rem;
-  font-weight: 600;
-  letter-spacing: .2em;
+.kicker {
+  margin: 0 0 8px;
+  color: #536c4d;
+  font-size: .77rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  line-height: 1.7;
   text-transform: uppercase;
+  text-shadow: 0 1px 0 #fffaf0, 0 0 5px rgba(255,250,240,.85);
 }
 
 .garden-title {
   margin: 0;
-  color: var(--wine);
-  font-size: 1.55rem;
+  color: var(--wine-dark);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.62rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.4;
+  text-shadow: 0 1px 0 #fffaf0, 0 0 5px rgba(255,250,240,.9);
 }
 
 .garden-subtitle {
-  margin: 5px 0 0;
-  color: var(--muted);
-  font-size: 1rem;
+  margin: 8px 0 0;
+  color: #704052;
+  font-size: 1.12rem;
   font-style: italic;
+  line-height: 1.5;
+  text-shadow: 0 1px 0 #fffaf0, 0 0 5px rgba(255,250,240,.95);
 }
 
-/* VINES AND FLOWERS */
+/* VINE DRAWINGS */
 
 .vine-art {
   display: block;
   width: 100%;
   height: auto;
+  margin: 5px auto 0;
   overflow: visible;
-  margin: 0 auto;
 }
 
 .vine-stem {
   fill: none;
-  stroke: #8ca184;
-  stroke-width: 2;
+  stroke: #718968;
+  stroke-width: 2.6;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 850;
-  stroke-dashoffset: 850;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
 }
 
 .leaf {
-  fill: #a6b994;
-  stroke: #829778;
-  stroke-width: .65;
+  fill: #b5c8a5;
+  stroke: #718968;
+  stroke-width: .8;
+  opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  opacity: 0;
-  transform: scale(.2) rotate(-20deg);
+  transform: scale(.15) rotate(-15deg);
 }
 
 .leaf-vein {
   fill: none;
-  stroke: #738d70;
-  stroke-width: .7;
+  stroke: #718968;
+  stroke-width: .8;
   stroke-linecap: round;
   opacity: 0;
 }
 
 .flower {
   cursor: pointer;
+  opacity: 0;
   outline: none;
   transform-box: fill-box;
   transform-origin: center;
-  opacity: 0;
-  transform: scale(.05) rotate(-18deg);
-}
-
-.flower:focus-visible .flower-center {
-  stroke: #633044;
-  stroke-width: 2.5;
+  transform: scale(.1) rotate(-15deg);
 }
 
 .flower-petals {
   transform-box: fill-box;
   transform-origin: center;
-  transition: transform .3s ease;
+  transition: transform .25s ease;
 }
 
 .flower:hover .flower-petals {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .petal {
-  fill: #f3cbd7;
-  stroke: #d98da3;
-  stroke-width: .8;
+  fill: #f2bfd0;
+  stroke: #c97996;
+  stroke-width: 1;
 }
 
 .petal.alt {
-  fill: #f8dce3;
+  fill: #ffdae5;
 }
 
 .flower-center {
-  fill: #d7b96e;
-  stroke: #c7a85b;
-  stroke-width: .8;
+  fill: #d9b95f;
+  stroke: #a8893e;
+  stroke-width: 1;
 }
 
 .flower-label {
-  fill: #633044;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 13px;
+  fill: #51253a;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 12px;
   font-weight: 700;
   text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(255,248,239,.97);
+  stroke-width: 4px;
+  stroke-linejoin: round;
   pointer-events: none;
 }
 
 .flower-caption {
-  fill: #a77c89;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  fill: #704257;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 10px;
   font-style: italic;
+  font-weight: 600;
   text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(255,248,239,.97);
+  stroke-width: 3px;
+  stroke-linejoin: round;
   pointer-events: none;
 }
 
-/* SCROLL MOTION */
+.flower:focus-visible .flower-center {
+  stroke: #51253a;
+  stroke-width: 2.5;
+}
+
+/* SCROLL REVEAL */
 
 .motion {
   opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity .85s ease,
-    transform .85s cubic-bezier(.16,1,.3,1);
+  transform: translateY(22px);
+  transition: opacity .8s ease, transform .8s ease;
 }
 
 .motion.is-visible {
@@ -396,7 +400,7 @@ a {
 }
 
 .garden.is-visible .vine-stem {
-  animation: drawVine 2.1s cubic-bezier(.55,.05,.25,1) forwards;
+  animation: drawVine 2.1s ease forwards;
 }
 
 .garden.is-visible .leaf {
@@ -404,23 +408,23 @@ a {
 }
 
 .garden.is-visible .leaf-vein {
-  animation: appear .5s ease forwards;
+  animation: showVein .5s ease forwards;
 }
 
 .garden.is-visible .flower {
-  animation: blossom .9s cubic-bezier(.2,1.5,.4,1) forwards;
+  animation: bloom .85s cubic-bezier(.2,1.5,.4,1) forwards;
 }
 
 .garden.is-visible .flower:nth-of-type(2) {
-  animation-delay: .3s;
+  animation-delay: .25s;
 }
 
 .garden.is-visible .flower:nth-of-type(3) {
-  animation-delay: .6s;
+  animation-delay: .5s;
 }
 
 .garden.is-visible .flower:nth-of-type(4) {
-  animation-delay: .9s;
+  animation-delay: .75s;
 }
 
 @keyframes drawVine {
@@ -434,14 +438,14 @@ a {
   }
 }
 
-@keyframes blossom {
+@keyframes bloom {
   0% {
     opacity: 0;
-    transform: scale(.05) rotate(-22deg);
+    transform: scale(.1) rotate(-15deg);
   }
-  65% {
+  70% {
     opacity: 1;
-    transform: scale(1.13) rotate(4deg);
+    transform: scale(1.12) rotate(3deg);
   }
   100% {
     opacity: 1;
@@ -449,27 +453,29 @@ a {
   }
 }
 
-@keyframes appear {
-  to { opacity: .85; }
+@keyframes showVein {
+  to { opacity: 1; }
 }
 
 /* FOOTER */
 
 .footer-note {
-  margin: 22px 8px 12px;
+  margin: 28px 5px 12px;
   padding-bottom: 12px;
-  color: var(--muted);
-  font-size: 1rem;
+  color: #704052;
+  font-size: 1.12rem;
   font-style: italic;
-  line-height: 1.5;
+  font-weight: 600;
+  line-height: 1.7;
   text-align: center;
+  text-shadow: 0 1px 0 #fffaf0, 0 0 5px rgba(255,250,240,.95);
 }
 
 /* MOBILE */
 
 @media (max-width: 480px) {
   body {
-    padding: 19px 17px;
+    padding: 19px 17px 25px;
   }
 
   body::before {
@@ -477,37 +483,39 @@ a {
     background-size: cover;
   }
 
-  .info-card {
-    padding: 23px 19px;
-  }
-
-  .editor-card {
-    padding: 17px;
+  .intro {
+    padding: 22px 18px;
   }
 
   .campaign-name {
-    font-size: 1.68rem;
+    font-size: 1.55rem;
   }
 
   .campaign-desc {
-    font-size: .94rem;
+    font-size: .97rem;
   }
 
   .garden {
-    margin-bottom: 12px;
+    margin-right: -7px;
+    margin-left: -7px;
     padding-top: 18px;
   }
 
+  .kicker {
+    font-size: .72rem;
+    letter-spacing: .12em;
+  }
+
   .garden-title {
-    font-size: 1.42rem;
+    font-size: 1.47rem;
   }
 
   .garden-subtitle {
-    font-size: .96rem;
+    font-size: 1.05rem;
   }
 
   .flower-label {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 
@@ -535,7 +543,7 @@ a {
   }
 
   .leaf-vein {
-    opacity: .85;
+    opacity: 1;
     animation: none !important;
   }
 }
@@ -546,13 +554,11 @@ a {
 <div class="wrap">
 
   <!-- INTRODUCTION -->
-  <section class="info-card motion">
-    <img
-      class="logo"
-      src="livia-profile.jpg"
-      alt="Livia's portrait"
-      onerror="this.style.display='none'"
-    >
+  <section class="intro motion">
+    <img class="logo"
+         src="livia-profile.jpg"
+         alt="Livia's portrait"
+         onerror="this.style.display='none'">
 
     <h1 class="campaign-name">#LiviaEdenic27</h1>
 
@@ -566,20 +572,18 @@ a {
       in holy bloom through #LiviaEdenic27! ♡
     </p>
 
-    <p class="campaign-date">
-      A celebration woven with love and wonder
-    </p>
+    <p class="campaign-date">A celebration woven with love and wonder</p>
   </section>
 
   <!-- TWIBBON MAKER -->
-  <section class="editor-card motion">
+  <section class="editor motion">
     <div class="canvas-wrap" id="canvasWrap">
       <canvas id="photoCanvas" width="1080" height="1080"></canvas>
       <canvas id="frameCanvas" width="1080" height="1080"></canvas>
     </div>
 
     <div class="controls">
-      <label class="file-btn" for="photoInput">Upload Photo</label>
+      <label class="upload-label" for="photoInput">Upload Photo</label>
       <input id="photoInput" type="file" accept="image/*">
 
       <div>
@@ -597,68 +601,69 @@ a {
     </div>
 
     <p class="hint">
-      Drag your photo to adjust its position, move the slider to zoom,
-      then download your image in high definition.
+      Drag your photo to adjust its position, use the zoom slider,
+      then download your high-definition twibbon.
     </p>
   </section>
 
   <!-- FIND THE CELEBRANT -->
   <section class="garden motion" aria-label="Find the Celebrant">
     <div class="garden-heading">
-      <p class="garden-kicker">A little path through the garden</p>
+      <p class="kicker">A little path through the garden</p>
       <h2 class="garden-title">Find the Celebrant</h2>
       <p class="garden-subtitle">follow the blossoms to find your way ♡</p>
     </div>
 
-    <svg class="vine-art" viewBox="0 0 360 245"
-         role="group" aria-label="Flowering vine links">
+    <svg class="vine-art" viewBox="0 0 360 280"
+         role="group" aria-label="Links to the celebrant">
 
       <path class="vine-stem"
-        d="M12 204 C45 197 48 166 77 171
-           C109 178 105 210 137 197
-           C164 186 158 148 189 145
-           C220 141 222 175 248 160
-           C278 142 274 111 302 111
-           C324 111 329 124 348 105"/>
+        d="M-18 224
+           C20 220 35 184 66 183
+           C99 182 108 220 141 205
+           C178 188 169 145 203 140
+           C238 135 249 177 278 157
+           C312 134 300 91 330 76
+           C344 69 355 71 376 54"/>
 
       <path class="vine-stem"
-        d="M77 171 C73 148 83 132 102 122
-           M137 197 C127 217 130 226 144 233
-           M189 145 C187 119 201 105 221 99
-           M248 160 C262 181 279 184 296 177
-           M302 111 C296 88 305 72 323 63"/>
+        d="M66 183 C57 158 43 150 29 143
+           M141 205 C126 226 128 246 151 257
+           M203 140 C200 111 211 94 232 83
+           M278 157 C292 179 316 182 337 166
+           M330 76 C325 52 335 35 355 24"/>
 
-      <path class="leaf" d="M68 167 Q49 145 40 155 Q43 174 68 167Z"/>
-      <path class="leaf-vein" d="M43 157 Q54 162 68 167"/>
+      <path class="leaf" d="M61 182 Q37 160 28 174 Q39 192 61 182Z"/>
+      <path class="leaf-vein" d="M32 175 Q46 181 61 182"/>
 
-      <path class="leaf" d="M95 177 Q113 158 123 170 Q116 188 95 177Z"/>
-      <path class="leaf-vein" d="M119 171 Q107 174 95 177"/>
+      <path class="leaf" d="M104 194 Q124 173 135 185 Q128 204 104 194Z"/>
+      <path class="leaf-vein" d="M130 186 Q117 191 104 194"/>
 
-      <path class="leaf" d="M137 196 Q116 194 114 207 Q128 218 137 196Z"/>
-      <path class="leaf-vein" d="M117 206 Q126 202 137 196"/>
+      <path class="leaf" d="M141 205 Q118 204 116 220 Q132 231 141 205Z"/>
+      <path class="leaf-vein" d="M120 219 Q132 213 141 205"/>
 
-      <path class="leaf" d="M188 145 Q168 124 159 139 Q166 153 188 145Z"/>
-      <path class="leaf-vein" d="M163 139 Q175 145 188 145"/>
+      <path class="leaf" d="M203 140 Q181 119 171 133 Q180 149 203 140Z"/>
+      <path class="leaf-vein" d="M176 134 Q189 140 203 140"/>
 
-      <path class="leaf" d="M245 159 Q264 138 275 150 Q268 166 245 159Z"/>
-      <path class="leaf-vein" d="M271 151 Q258 156 245 159"/>
+      <path class="leaf" d="M278 157 Q300 135 310 149 Q302 166 278 157Z"/>
+      <path class="leaf-vein" d="M306 150 Q292 156 278 157"/>
 
-      <path class="leaf" d="M302 111 Q283 94 274 105 Q283 120 302 111Z"/>
-      <path class="leaf-vein" d="M278 106 Q291 110 302 111"/>
+      <path class="leaf" d="M330 76 Q308 57 300 70 Q310 86 330 76Z"/>
+      <path class="leaf-vein" d="M304 71 Q318 76 330 76"/>
 
       <a href="https://t.me/ettourdearly"
          target="_blank" rel="noopener noreferrer"
          aria-label="Visit Charmaine Fernsby on Telegram">
         <g class="flower" tabindex="0" role="link">
           <g class="flower-petals">
-            <ellipse class="petal" cx="102" cy="122" rx="7" ry="13"/>
-            <ellipse class="petal alt" cx="102" cy="122" rx="7" ry="13" transform="rotate(45 102 122)"/>
-            <ellipse class="petal" cx="102" cy="122" rx="7" ry="13" transform="rotate(90 102 122)"/>
-            <ellipse class="petal alt" cx="102" cy="122" rx="7" ry="13" transform="rotate(135 102 122)"/>
-            <circle class="flower-center" cx="102" cy="122" r="5"/>
+            <ellipse class="petal" cx="91" cy="127" rx="10" ry="18"/>
+            <ellipse class="petal alt" cx="91" cy="127" rx="10" ry="18" transform="rotate(45 91 127)"/>
+            <ellipse class="petal" cx="91" cy="127" rx="10" ry="18" transform="rotate(90 91 127)"/>
+            <ellipse class="petal alt" cx="91" cy="127" rx="10" ry="18" transform="rotate(135 91 127)"/>
+            <circle class="flower-center" cx="91" cy="127" r="7"/>
           </g>
-          <text class="flower-label" x="101" y="146">Charmaine Fernsby</text>
-          <text class="flower-caption" x="101" y="158">personal Telegram</text>
+          <text class="flower-label" x="91" y="89">Charmaine Fernsby</text>
+          <text class="flower-caption" x="91" y="103">personal Telegram</text>
         </g>
       </a>
 
@@ -667,28 +672,29 @@ a {
          aria-label="Visit the Jubilee Celebration Channel">
         <g class="flower" tabindex="0" role="link">
           <g class="flower-petals">
-            <ellipse class="petal alt" cx="221" cy="99" rx="7" ry="13"/>
-            <ellipse class="petal" cx="221" cy="99" rx="7" ry="13" transform="rotate(45 221 99)"/>
-            <ellipse class="petal alt" cx="221" cy="99" rx="7" ry="13" transform="rotate(90 221 99)"/>
-            <ellipse class="petal" cx="221" cy="99" rx="7" ry="13" transform="rotate(135 221 99)"/>
-            <circle class="flower-center" cx="221" cy="99" r="5"/>
+            <ellipse class="petal alt" cx="232" cy="83" rx="10" ry="18"/>
+            <ellipse class="petal" cx="232" cy="83" rx="10" ry="18" transform="rotate(45 232 83)"/>
+            <ellipse class="petal alt" cx="232" cy="83" rx="10" ry="18" transform="rotate(90 232 83)"/>
+            <ellipse class="petal" cx="232" cy="83" rx="10" ry="18" transform="rotate(135 232 83)"/>
+            <circle class="flower-center" cx="232" cy="83" r="7"/>
           </g>
-          <text class="flower-label" x="220" y="75">Jubilee Channel</text>
-          <text class="flower-caption" x="220" y="64">celebration sanctuary</text>
+          <text class="flower-label" x="232" y="44">Jubilee Channel</text>
+          <text class="flower-caption" x="232" y="58">celebration sanctuary</text>
         </g>
       </a>
 
       <g class="flower" aria-hidden="true">
         <g class="flower-petals">
-          <ellipse class="petal" cx="322" cy="63" rx="4" ry="8"/>
-          <ellipse class="petal alt" cx="322" cy="63" rx="4" ry="8" transform="rotate(60 322 63)"/>
-          <ellipse class="petal" cx="322" cy="63" rx="4" ry="8" transform="rotate(120 322 63)"/>
-          <circle class="flower-center" cx="322" cy="63" r="3"/>
+          <ellipse class="petal" cx="355" cy="24" rx="6" ry="11"/>
+          <ellipse class="petal alt" cx="355" cy="24" rx="6" ry="11" transform="rotate(60 355 24)"/>
+          <ellipse class="petal" cx="355" cy="24" rx="6" ry="11" transform="rotate(120 355 24)"/>
+          <circle class="flower-center" cx="355" cy="24" r="4"/>
         </g>
       </g>
 
-      <text x="14" y="224"
-        style="fill:#a77c89;font:italic 11px 'Cormorant Garamond',serif">
+      <text x="17" y="252"
+        style="fill:#704052;font:italic 12px 'Cormorant Garamond',serif;
+        paint-order:stroke;stroke:rgba(255,248,239,.95);stroke-width:3px">
         a flowering path
       </text>
     </svg>
@@ -697,52 +703,53 @@ a {
   <!-- GRATITUDE IN BLOOM -->
   <section class="garden motion" aria-label="Gratitude in Bloom">
     <div class="garden-heading">
-      <p class="garden-kicker">With affection and appreciation</p>
+      <p class="kicker">With affection and appreciation</p>
       <h2 class="garden-title">Gratitude in Bloom</h2>
       <p class="garden-subtitle">each blossom holds a little gratitude ♡</p>
     </div>
 
-    <svg class="vine-art" viewBox="0 0 360 220"
+    <svg class="vine-art" viewBox="0 0 360 250"
          role="group" aria-label="Creative credits">
 
       <path class="vine-stem"
-        d="M12 178 C49 185 64 150 94 155
-           C123 160 127 187 157 171
-           C185 156 181 126 213 126
-           C247 126 250 155 278 137
-           C301 122 321 129 348 105"/>
+        d="M-18 202
+           C23 211 42 178 75 180
+           C111 182 118 216 151 199
+           C183 182 180 143 215 139
+           C250 135 261 175 291 155
+           C323 135 330 129 376 102"/>
 
       <path class="vine-stem"
-        d="M94 155 C88 131 96 115 116 104
-           M157 171 C148 190 151 202 169 207
-           M213 126 C211 103 226 89 246 86
-           M278 137 C291 155 309 157 323 147"/>
+        d="M75 180 C66 151 75 132 95 120
+           M151 199 C140 219 145 237 165 246
+           M215 139 C211 111 225 92 246 83
+           M291 155 C307 177 330 180 350 165"/>
 
-      <path class="leaf" d="M90 155 Q71 137 62 149 Q68 165 90 155Z"/>
-      <path class="leaf-vein" d="M66 150 Q79 153 90 155"/>
+      <path class="leaf" d="M73 180 Q51 160 41 174 Q51 190 73 180Z"/>
+      <path class="leaf-vein" d="M45 175 Q59 180 73 180"/>
 
-      <path class="leaf" d="M157 171 Q138 159 131 173 Q143 185 157 171Z"/>
-      <path class="leaf-vein" d="M135 174 Q147 174 157 171"/>
+      <path class="leaf" d="M151 199 Q128 193 124 210 Q139 221 151 199Z"/>
+      <path class="leaf-vein" d="M128 208 Q141 205 151 199"/>
 
-      <path class="leaf" d="M213 126 Q193 109 184 122 Q193 138 213 126Z"/>
-      <path class="leaf-vein" d="M188 123 Q200 127 213 126"/>
+      <path class="leaf" d="M215 139 Q193 119 183 132 Q193 148 215 139Z"/>
+      <path class="leaf-vein" d="M188 133 Q201 139 215 139"/>
 
-      <path class="leaf" d="M278 137 Q298 117 306 130 Q300 146 278 137Z"/>
-      <path class="leaf-vein" d="M302 131 Q290 136 278 137"/>
+      <path class="leaf" d="M291 155 Q311 133 322 147 Q314 165 291 155Z"/>
+      <path class="leaf-vein" d="M318 148 Q304 154 291 155"/>
 
       <a href="https://t.me/artlucas"
          target="_blank" rel="noopener noreferrer"
          aria-label="Visit artlucas on Telegram">
         <g class="flower" tabindex="0" role="link">
           <g class="flower-petals">
-            <ellipse class="petal alt" cx="116" cy="104" rx="7" ry="13"/>
-            <ellipse class="petal" cx="116" cy="104" rx="7" ry="13" transform="rotate(45 116 104)"/>
-            <ellipse class="petal alt" cx="116" cy="104" rx="7" ry="13" transform="rotate(90 116 104)"/>
-            <ellipse class="petal" cx="116" cy="104" rx="7" ry="13" transform="rotate(135 116 104)"/>
-            <circle class="flower-center" cx="116" cy="104" r="5"/>
+            <ellipse class="petal alt" cx="95" cy="120" rx="10" ry="18"/>
+            <ellipse class="petal" cx="95" cy="120" rx="10" ry="18" transform="rotate(45 95 120)"/>
+            <ellipse class="petal alt" cx="95" cy="120" rx="10" ry="18" transform="rotate(90 95 120)"/>
+            <ellipse class="petal" cx="95" cy="120" rx="10" ry="18" transform="rotate(135 95 120)"/>
+            <circle class="flower-center" cx="95" cy="120" r="7"/>
           </g>
-          <text class="flower-label" x="116" y="83">@artlucas</text>
-          <text class="flower-caption" x="116" y="71">artistry</text>
+          <text class="flower-label" x="95" y="82">@artlucas</text>
+          <text class="flower-caption" x="95" y="96">artistry</text>
         </g>
       </a>
 
@@ -751,23 +758,23 @@ a {
          aria-label="Visit Trinkets Lab on Telegram">
         <g class="flower" tabindex="0" role="link">
           <g class="flower-petals">
-            <ellipse class="petal" cx="246" cy="86" rx="7" ry="13"/>
-            <ellipse class="petal alt" cx="246" cy="86" rx="7" ry="13" transform="rotate(45 246 86)"/>
-            <ellipse class="petal" cx="246" cy="86" rx="7" ry="13" transform="rotate(90 246 86)"/>
-            <ellipse class="petal alt" cx="246" cy="86" rx="7" ry="13" transform="rotate(135 246 86)"/>
-            <circle class="flower-center" cx="246" cy="86" r="5"/>
+            <ellipse class="petal" cx="246" cy="83" rx="10" ry="18"/>
+            <ellipse class="petal alt" cx="246" cy="83" rx="10" ry="18" transform="rotate(45 246 83)"/>
+            <ellipse class="petal" cx="246" cy="83" rx="10" ry="18" transform="rotate(90 246 83)"/>
+            <ellipse class="petal alt" cx="246" cy="83" rx="10" ry="18" transform="rotate(135 246 83)"/>
+            <circle class="flower-center" cx="246" cy="83" r="7"/>
           </g>
-          <text class="flower-label" x="246" y="65">@trinketslab</text>
-          <text class="flower-caption" x="246" y="53">collaboration</text>
+          <text class="flower-label" x="246" y="45">@trinketslab</text>
+          <text class="flower-caption" x="246" y="59">collaboration</text>
         </g>
       </a>
 
       <g class="flower" aria-hidden="true">
         <g class="flower-petals">
-          <ellipse class="petal" cx="169" cy="207" rx="4" ry="8"/>
-          <ellipse class="petal alt" cx="169" cy="207" rx="4" ry="8" transform="rotate(60 169 207)"/>
-          <ellipse class="petal" cx="169" cy="207" rx="4" ry="8" transform="rotate(120 169 207)"/>
-          <circle class="flower-center" cx="169" cy="207" r="3"/>
+          <ellipse class="petal" cx="165" cy="246" rx="5" ry="9"/>
+          <ellipse class="petal alt" cx="165" cy="246" rx="5" ry="9" transform="rotate(60 165 246)"/>
+          <ellipse class="petal" cx="165" cy="246" rx="5" ry="9" transform="rotate(120 165 246)"/>
+          <circle class="flower-center" cx="165" cy="246" r="3.5"/>
         </g>
       </g>
     </svg>
@@ -822,15 +829,11 @@ frame.src = "twibbon.png";
 
 function drawFrame() {
   frameCtx.clearRect(0, 0, SIZE, SIZE);
-
-  if (frameLoaded) {
-    frameCtx.drawImage(frame, 0, 0, SIZE, SIZE);
-  }
+  if (frameLoaded) frameCtx.drawImage(frame, 0, 0, SIZE, SIZE);
 }
 
 function drawPhoto() {
   photoCtx.clearRect(0, 0, SIZE, SIZE);
-
   if (!photo) return;
 
   const width = photo.naturalWidth * baseScale * zoom;
@@ -895,9 +898,9 @@ resetBtn.addEventListener("click", () => {
   zoom = 1;
   offsetX = 0;
   offsetY = 0;
-
   zoomRange.value = "100";
   zoomVal.textContent = "100%";
+
   drawPhoto();
 });
 
@@ -914,7 +917,6 @@ canvasWrap.addEventListener("pointerdown", event => {
   if (!photo) return;
 
   dragging = true;
-
   const point = getCanvasPoint(event);
   lastX = point.x;
   lastY = point.y;
@@ -978,7 +980,7 @@ downloadBtn.addEventListener("click", () => {
   }, "image/png");
 });
 
-/* SCROLL ANIMATIONS */
+/* SCROLL REVEAL */
 
 const motionItems = document.querySelectorAll(".motion");
 
@@ -1001,6 +1003,5 @@ if ("IntersectionObserver" in window) {
   motionItems.forEach(item => item.classList.add("is-visible"));
 }
 </script>
-
 </body>
 </html>
