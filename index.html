@@ -4,564 +4,654 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f8e9ed">
-<title>Livia's Edenic Arbor | #LiviaEdenic27</title>
+<meta name="theme-color" content="#fff6f2">
+<title>Livia Nunes's Garden of 27 — #LiviaEdenic27</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --rose: #d889a0;
-  --deep-rose: #9d526c;
-  --blush: #f8e9ed;
-  --ivory: #fffaf7;
-  --mint: #e3f0e6;
-  --sage: #80977b;
-  --ink: #704858;
-  --line: rgba(196, 126, 149, .36);
+  --bg: #fff6f2;
+  --panel: #fffbf9;
+  --accent: #fb8ba3;
+  --accent2: #a9a13a;
+  --text: #633044;
+  --muted: #a77c89;
+  --line: #f8d6df;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  color: var(--ink);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 246, 247, .56),
-      rgba(230, 242, 231, .50),
-      rgba(250, 231, 237, .65)
-    ),
-    url("background.jpg") center top / cover fixed;
+  padding: 24px;
   min-height: 100vh;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(
+      rgba(255, 246, 242, .28),
+      rgba(255, 235, 241, .30)
+    ),
+    url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
-a {
-  color: var(--deep-rose);
-  text-decoration: none;
-  transition: color .2s ease;
+* {
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-a:hover { color: var(--sage); }
-
-.page {
-  width: min(100% - 28px, 760px);
+.wrap {
+  width: 100%;
+  max-width: 460px;
   margin: 0 auto;
-  padding: 30px 0 45px;
 }
 
-.panel {
-  background: rgba(255, 250, 247, .94);
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  padding: clamp(22px, 5vw, 42px);
-  margin-bottom: 22px;
-  box-shadow: 0 16px 40px rgba(152, 102, 119, .10);
+.info-card,
+.card,
+.extra-card {
+  background: rgba(255, 251, 249, .96);
+  border: 1px solid rgba(251, 139, 163, .35);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(190, 54, 89, .14);
+}
+
+.info-card {
+  padding: 28px 24px;
   text-align: center;
-  backdrop-filter: blur(7px);
+  margin-bottom: 16px;
 }
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: .19em;
-  font-size: 12px;
-  color: var(--sage);
+.logo {
+  display: block;
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  background: #fff;
+}
+
+.campaign-name {
+  color: var(--text);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.campaign-desc {
+  color: var(--muted);
+  font-size: 1.08rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.55;
+  text-align: center;
   margin: 0 0 12px;
 }
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  line-height: 1.35;
+.campaign-date {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0 0 18px;
 }
 
-h1 {
-  font-size: clamp(28px, 6vw, 39px);
-  color: #8d405c;
-  margin: 12px 0;
-}
-
-h2 {
-  font-size: clamp(23px, 5vw, 30px);
-  margin: 5px 0 14px;
-  color: #8e5267;
-}
-
-h3 {
-  font-size: 21px;
-  margin: 0 0 8px;
-}
-
-p {
-  line-height: 1.6;
-  margin: 10px 0;
-}
-
-.intro-copy {
-  max-width: 590px;
-  margin: 12px auto;
-  color: #b56f85;
-  font-size: clamp(18px, 3.5vw, 21px);
-  font-style: italic;
-}
-
-.ornament {
-  color: var(--rose);
-  letter-spacing: .35em;
-  margin: 18px 0;
-}
-
-.pill {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 17px;
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  background: #fff3f5;
-  font-size: 17px;
-}
-
-.button {
+.supporter-pill {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  gap: 8px;
-  border: 1px solid #dca0b1;
-  border-radius: 28px;
-  padding: 11px 19px;
-  background: #f9e8ed;
-  color: #8e4c64;
-  font: 500 16px 'Cormorant Garamond', serif;
-  cursor: pointer;
-  transition: .2s ease;
-}
-
-.button:hover {
-  background: #f1d6df;
-  color: #754155;
-}
-
-.button.primary {
-  background: #d98da3;
-  color: white;
-  border-color: #d98da3;
-}
-
-.button.primary:hover { background: #bd718a; }
-
-.button:disabled {
-  opacity: .45;
-  cursor: not-allowed;
-}
-
-.link-row {
-  display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 17px;
+  gap: 12px;
+  min-width: 145px;
+  padding: 11px 20px;
+  background: rgba(251, 139, 163, .09);
+  border: 1px solid rgba(251, 139, 163, .35);
+  border-radius: 999px;
 }
 
-.date-note {
-  color: #a97687;
-  font-size: 16px;
+.heart {
+  color: var(--accent);
+  font-size: 1.4rem;
 }
 
-.maker {
-  padding: clamp(14px, 3vw, 25px);
+.supporter-count {
+  display: block;
+  color: var(--accent2);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.supporter-label {
+  display: block;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.card {
+  padding: 28px;
+  margin-bottom: 16px;
 }
 
 .canvas-wrap {
+  position: relative;
   width: 100%;
-  max-width: 510px;
-  margin: 22px auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  background: #f9eff1;
-  touch-action: pan-y;
-}
-
-canvas {
-  display: block;
-  width: 100%;
-  height: auto;
+  background:
+    repeating-conic-gradient(
+      #ffe6dc 0% 25%,
+      #fff6f2 0% 50%
+    ) 50% / 24px 24px;
   touch-action: none;
   cursor: grab;
 }
 
-canvas:active { cursor: grabbing; }
+.canvas-wrap:active {
+  cursor: grabbing;
+}
 
-.upload-box {
-  border: 1px dashed #d9a1b1;
-  border-radius: 18px;
-  padding: 20px 12px;
-  background: rgba(255, 243, 246, .65);
-  margin: 14px 0;
+canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+label.file-btn,
+button {
+  flex: 1;
+  border-radius: 12px;
+  padding: 13px 12px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: .15s ease;
+}
+
+label.file-btn {
+  display: block;
+  background: rgba(251, 139, 163, .12);
+  color: var(--text);
+  border: 1px solid rgba(251, 139, 163, .35);
+}
+
+label.file-btn:hover,
+button:hover {
+  transform: translateY(-1px);
 }
 
 input[type="file"] {
-  width: 100%;
-  max-width: 280px;
-  margin: 10px auto;
-  font: 14px 'Cormorant Garamond', serif;
-  color: var(--ink);
+  display: none;
 }
 
-.control {
-  text-align: left;
-  margin: 18px auto;
-  max-width: 450px;
-}
-
-.control label {
-  display: block;
+.zoom-label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 1rem;
   margin-bottom: 7px;
 }
 
-input[type="range"] {
+#zoomRange {
   width: 100%;
-  accent-color: #c97f98;
+  accent-color: var(--accent);
+}
+
+#resetBtn {
+  color: var(--text);
+  background: rgba(171, 164, 21, .12);
+  border: 1px solid rgba(171, 164, 21, .32);
+}
+
+#downloadBtn {
+  color: white;
+  background: linear-gradient(
+    100deg,
+    #facbd6,
+    #f3d3d8,
+    #dfe3a7
+  );
+  border: 1px solid #f9d3dd;
+}
+
+#downloadBtn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .hint {
-  color: #9e7886;
-  font-size: 15px;
-  font-style: italic;
-}
-
-.divider {
-  color: #d69aab;
-  margin: 20px 0;
-}
-
-.credit-card {
-  border: 1px solid rgba(196,126,149,.28);
-  border-radius: 20px;
-  padding: 18px 12px;
-  margin-top: 12px;
-  background: rgba(255, 242, 245, .65);
-}
-
-.credit-card p { margin-bottom: 0; }
-
-footer {
+  color: var(--muted);
   text-align: center;
-  padding: 8px 12px 20px;
-  color: #936e7c;
-  font-size: 15px;
+  font-size: 1rem;
+  line-height: 1.45;
+  margin: 18px 0 0;
 }
 
-@media (max-width: 520px) {
-  .page { width: min(100% - 20px, 760px); padding-top: 14px; }
-  .panel { border-radius: 23px; padding: 23px 18px; }
-  .maker { padding: 13px; }
-  .link-row .button { flex: 1 1 100%; }
+.extra-card {
+  padding: 22px 24px;
+  margin-bottom: 16px;
+}
+
+.extra-card h3 {
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  text-decoration: none;
+  background: rgba(251, 139, 163, .08);
+  border: 1px solid rgba(251, 139, 163, .28);
+  border-radius: 13px;
+  transition: .15s ease;
+}
+
+.link-item:hover {
+  background: rgba(251, 139, 163, .16);
+  transform: translateY(-1px);
+}
+
+.link-item-title {
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.link-item-desc {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.link-item-arrow {
+  color: var(--accent2);
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.footer-note {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 20px 0 0;
+  letter-spacing: .03em;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 14px;
+  }
+
+  .info-card {
+    padding: 26px 20px;
+  }
+
+  .card {
+    padding: 22px 18px;
+  }
+
+  .extra-card {
+    padding: 20px;
+  }
+
+  .campaign-name {
+    font-size: 1.65rem;
+  }
+
+  .campaign-desc {
+    font-size: 1.04rem;
+  }
+
+  label.file-btn,
+  button {
+    font-size: 1rem;
+  }
 }
 </style>
 </head>
 
 <body>
-<main class="page">
+<div class="wrap">
 
   <!-- INTRODUCTION -->
-  <section class="panel" id="welcome">
-    <p class="eyebrow">A Sacred Jubilee Dreamscape</p>
-    <div class="ornament">✧ ❀ ✧</div>
-    <h1>#LiviaEdenic27</h1>
+  <section class="info-card">
+    <img
+      class="logo"
+      id="logoImg"
+      src="livia-profile.jpg"
+      alt="Livia's portrait"
+      onerror="this.style.display='none'"
+    >
 
-    <p class="intro-copy">
+    <p class="campaign-name">#LiviaEdenic27</p>
+
+    <p class="campaign-desc">
       A hallowed fascicle of tender oblation, aureate phantasies,
       and an Arcadian arras of perennial blossoming. Within this
       roseate sanctuary, Livia Nunes solemnizes her vigintiseptennial
-      jubilee amidst Eden's most immaculate beatitudes. Come, let us
+      jubilee amidst Eden’s most immaculate beatitudes. Come, let us
       assemble beneath the blossoming boughs to consecrate her natal
       morn with our most fervent orisons. Let the solemnities unfurl
       in holy bloom through #LiviaEdenic27! ♡
     </p>
 
-    <div class="ornament">❧ ❀ ❧</div>
+    <p class="campaign-date">A celebration woven with love and wonder</p>
 
-    <p class="date-note">A celebration woven with love and wonder</p>
-
-    <div class="link-row">
-      <a class="button" href="https://t.me/ettourdearly"
-         target="_blank" rel="noopener">
-        ♡ Charmaine Fernsby
-      </a>
-      <a class="button" href="https://t.me/faaierie"
-         target="_blank" rel="noopener">
-        ✿ Jubilee Celebration Channel
-      </a>
+    <div class="supporter-pill">
+      <span class="heart">♡</span>
+      <span>
+        <span class="supporter-count" id="supporterCount">1</span>
+        <span class="supporter-label">Supporters</span>
+      </span>
     </div>
   </section>
 
   <!-- TWIBBON MAKER -->
-  <section class="panel maker" id="twibbon">
-    <p class="eyebrow">A Keepsake of the Jubilee</p>
-    <h2>Frame Your Edenic Reverie</h2>
-    <p>
-      Adorn your portrait with Livia's garden of dreams.
-      Upload a photograph, adjust its placement, and keep
-      a little memento of this roseate celebration.
-    </p>
-
-    <div class="canvas-wrap">
-      <canvas id="canvas" width="1280" height="1280"></canvas>
+  <section class="card">
+    <div class="canvas-wrap" id="canvasWrap">
+      <canvas id="photoCanvas" width="1080" height="1080"></canvas>
+      <canvas id="frameCanvas" width="1080" height="1080"></canvas>
     </div>
 
-    <div class="upload-box">
-      <h3>Choose Your Portrait</h3>
-      <p class="hint">A square photograph works beautifully.</p>
-      <input id="photoInput" type="file" accept="image/*">
-    </div>
+    <div class="controls">
+      <div class="row">
+        <label class="file-btn" for="photoInput">📷 Upload Photo</label>
+        <input type="file" id="photoInput" accept="image/*">
+      </div>
 
-    <div class="control">
-      <label for="zoom">Portrait Magnification</label>
-      <input id="zoom" type="range" min="0.5" max="3"
-             step="0.01" value="1" disabled>
-    </div>
+      <div>
+        <div class="zoom-label">
+          <span>Zoom</span>
+          <span id="zoomVal">100%</span>
+        </div>
+        <input type="range" id="zoomRange" min="50" max="300" value="100">
+      </div>
 
-    <div class="link-row">
-      <button class="button" id="reset" disabled>
-        Reset Portrait
-      </button>
-      <button class="button primary" id="download" disabled>
-        Download Twibbon PNG
-      </button>
+      <div class="row">
+        <button id="resetBtn">↺ Reset Position</button>
+        <button id="downloadBtn" disabled>⬇ Download HD</button>
+      </div>
     </div>
 
     <p class="hint">
-      Drag your portrait inside the frame to reposition it.
-    </p>
-    <p class="hint">
-      Your photograph is processed in your browser and is not uploaded by this page.
+      Drag your photo to adjust its position, move the slider to zoom,
+      then download your image in high definition.
     </p>
   </section>
 
   <!-- TELEGRAM LINKS -->
-  <section class="panel" id="connect">
-    <p class="eyebrow">Letters from the Garden</p>
-    <h2>Find the Celebrant</h2>
-    <p>
-      Extend your felicitations, leave a tender greeting,
-      or visit the little corner where this jubilee unfolds.
-    </p>
+  <section class="extra-card">
+    <h3>✧ Find the Celebrant</h3>
 
-    <div class="credit-card">
-      <h3>Charmaine Fernsby</h3>
-      <p>Meet the dreamer behind this celebration.</p>
-      <a href="https://t.me/ettourdearly"
-         target="_blank" rel="noopener">@eaudearly on Telegram ↗</a>
-    </div>
+    <a class="link-item" href="https://t.me/ettourdearly"
+       target="_blank" rel="noopener">
+      <div>
+        <p class="link-item-title">Charmaine Fernsby</p>
+        <p class="link-item-desc">Visit my personal Telegram account.</p>
+      </div>
+      <span class="link-item-arrow">↗</span>
+    </a>
 
-    <div class="credit-card">
-      <h3>The Jubilee Sanctuary</h3>
-      <p>A gathering place for wishes and roseate memories.</p>
-      <a href="https://t.me/faaierie"
-         target="_blank" rel="noopener">Visit the celebration channel ↗</a>
-    </div>
+    <a class="link-item" href="https://t.me/faaierie"
+       target="_blank" rel="noopener" style="margin-top:10px">
+      <div>
+        <p class="link-item-title">Jubilee Celebration Channel</p>
+        <p class="link-item-desc">Visit the celebration sanctuary.</p>
+      </div>
+      <span class="link-item-arrow">↗</span>
+    </a>
   </section>
 
   <!-- CREDITS -->
-  <section class="panel" id="credits">
-    <p class="eyebrow">With Grateful Affection</p>
-    <h2>A Note of Acknowledgement</h2>
-    <p>
-      This little dreamscape blooms through the kindness,
-      artistry, and collaborative spirit of its cherished creators.
-    </p>
+  <section class="extra-card">
+    <h3>♡ Special Thanks</h3>
 
-    <div class="credit-card">
-      <h3>Art & Creative Direction</h3>
-      <p>With appreciation for the artistry of</p>
-      <a href="https://t.me/artlucas"
-         target="_blank" rel="noopener">@artlucas ↗</a>
-    </div>
+    <a class="link-item" href="https://t.me/artlucas"
+       target="_blank" rel="noopener">
+      <div>
+        <p class="link-item-title">@artlucas</p>
+        <p class="link-item-desc">With appreciation for the artistry.</p>
+      </div>
+      <span class="link-item-arrow">↗</span>
+    </a>
 
-    <div class="credit-card">
-      <h3>Creative Collaboration</h3>
-      <p>A collaborative confection by</p>
-      <a href="https://t.me/trinketslab"
-         target="_blank" rel="noopener">@trinketslab ↗</a>
-    </div>
-
-    <div class="ornament">✧ ❀ ✧</div>
-    <p class="hint">Lovingly gathered for #LiviaEdenic27 ♡</p>
+    <a class="link-item" href="https://t.me/trinketslab"
+       target="_blank" rel="noopener" style="margin-top:10px">
+      <div>
+        <p class="link-item-title">@trinketslab</p>
+        <p class="link-item-desc">With gratitude for the collaboration.</p>
+      </div>
+      <span class="link-item-arrow">↗</span>
+    </a>
   </section>
 
-  <footer>
-    An Edenic keepsake, made to be cherished.
-  </footer>
-</main>
+  <p class="footer-note">
+    #LiviaEdenic27 · Made with love and gratitude ♡
+  </p>
+</div>
 
 <script>
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+const SIZE = 1080;
+
+const photoCanvas = document.getElementById("photoCanvas");
+const frameCanvas = document.getElementById("frameCanvas");
+
+const pCtx = photoCanvas.getContext("2d");
+const fCtx = frameCanvas.getContext("2d");
+
+const wrap = document.getElementById("canvasWrap");
 const photoInput = document.getElementById("photoInput");
-const zoomSlider = document.getElementById("zoom");
-const resetButton = document.getElementById("reset");
-const downloadButton = document.getElementById("download");
+const zoomRange = document.getElementById("zoomRange");
+const zoomVal = document.getElementById("zoomVal");
+const resetBtn = document.getElementById("resetBtn");
+const downloadBtn = document.getElementById("downloadBtn");
 
-const frame = new Image();
-frame.src = "./twibbon.png";
+let photoImg = null;
+let frameImg = new Image();
 
-let photo = null;
-let photoX = 640;
-let photoY = 640;
-let zoom = 1;
+let scale = 1;
 let baseScale = 1;
+let offsetX = 0;
+let offsetY = 0;
 let dragging = false;
 let lastX = 0;
 let lastY = 0;
-let frameReady = false;
+let frameLoaded = false;
 
-frame.onload = () => {
-  frameReady = true;
-  draw();
+frameImg.onload = () => {
+  frameLoaded = true;
+  drawFrame();
 };
 
-frame.onerror = () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#fff7f8";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#9d526c";
-  ctx.textAlign = "center";
-  ctx.font = "36px serif";
-  ctx.fillText("Unable to load twibbon.png", 640, 610);
-  ctx.font = "25px serif";
-  ctx.fillText("Check the filename in your repository.", 640, 660);
+frameImg.onerror = () => {
+  console.error("Could not load twibbon.png. Check the filename.");
 };
 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+frameImg.src = "twibbon.png";
 
-  if (photo) {
-    const scale = baseScale * zoom;
-    const w = photo.naturalWidth * scale;
-    const h = photo.naturalHeight * scale;
-
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(0, 0, canvas.width, canvas.height);
-    ctx.clip();
-    ctx.drawImage(photo, photoX - w / 2, photoY - h / 2, w, h);
-    ctx.restore();
-  } else {
-    ctx.fillStyle = "#f8e9ed";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#9d526c";
-    ctx.textAlign = "center";
-    ctx.font = "40px serif";
-    ctx.fillText("Your portrait will appear here", 640, 620);
-    ctx.font = "27px serif";
-    ctx.fillText("Upload a photograph to begin", 640, 675);
-  }
-
-  if (frameReady) {
-    ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
+function drawFrame() {
+  fCtx.clearRect(0, 0, SIZE, SIZE);
+  if (frameLoaded) {
+    fCtx.drawImage(frameImg, 0, 0, SIZE, SIZE);
   }
 }
 
-photoInput.addEventListener("change", (event) => {
+function drawPhoto() {
+  pCtx.clearRect(0, 0, SIZE, SIZE);
+
+  if (!photoImg) return;
+
+  const w = photoImg.naturalWidth * baseScale * scale;
+  const h = photoImg.naturalHeight * baseScale * scale;
+
+  const x = SIZE / 2 - w / 2 + offsetX;
+  const y = SIZE / 2 - h / 2 + offsetY;
+
+  pCtx.drawImage(photoImg, x, y, w, h);
+}
+
+photoInput.addEventListener("change", event => {
   const file = event.target.files[0];
   if (!file) return;
 
   if (!file.type.startsWith("image/")) {
-    alert("Please choose an image file.");
+    alert("Please select an image file.");
     return;
   }
 
   const reader = new FileReader();
+
   reader.onload = () => {
     const img = new Image();
+
     img.onload = () => {
-      photo = img;
-      zoom = 1;
-      zoomSlider.value = "1";
+      photoImg = img;
 
       baseScale = Math.max(
-        canvas.width / photo.naturalWidth,
-        canvas.height / photo.naturalHeight
+        SIZE / img.naturalWidth,
+        SIZE / img.naturalHeight
       );
 
-      photoX = canvas.width / 2;
-      photoY = canvas.height / 2;
+      scale = 1;
+      offsetX = 0;
+      offsetY = 0;
 
-      zoomSlider.disabled = false;
-      resetButton.disabled = false;
-      downloadButton.disabled = false;
-      draw();
+      zoomRange.value = 100;
+      zoomVal.textContent = "100%";
+
+      drawPhoto();
+
+      downloadBtn.disabled = false;
     };
+
     img.src = reader.result;
   };
+
   reader.readAsDataURL(file);
 });
 
-zoomSlider.addEventListener("input", () => {
-  zoom = Number(zoomSlider.value);
-  draw();
+zoomRange.addEventListener("input", () => {
+  scale = Number(zoomRange.value) / 100;
+  zoomVal.textContent = zoomRange.value + "%";
+  drawPhoto();
 });
 
-resetButton.addEventListener("click", () => {
-  if (!photo) return;
-  zoom = 1;
-  zoomSlider.value = "1";
-  photoX = canvas.width / 2;
-  photoY = canvas.height / 2;
-  draw();
+resetBtn.addEventListener("click", () => {
+  scale = 1;
+  offsetX = 0;
+  offsetY = 0;
+
+  zoomRange.value = 100;
+  zoomVal.textContent = "100%";
+
+  drawPhoto();
 });
 
-function pointerPosition(event) {
-  const rect = canvas.getBoundingClientRect();
+function getPosition(event) {
+  const rect = wrap.getBoundingClientRect();
+
+  const clientX = event.touches
+    ? event.touches[0].clientX
+    : event.clientX;
+
+  const clientY = event.touches
+    ? event.touches[0].clientY
+    : event.clientY;
+
   return {
-    x: (event.clientX - rect.left) * canvas.width / rect.width,
-    y: (event.clientY - rect.top) * canvas.height / rect.height
+    x: (clientX - rect.left) * SIZE / rect.width,
+    y: (clientY - rect.top) * SIZE / rect.height
   };
 }
 
-canvas.addEventListener("pointerdown", (event) => {
-  if (!photo) return;
+wrap.addEventListener("pointerdown", event => {
+  if (!photoImg) return;
+
   dragging = true;
-  const point = pointerPosition(event);
+
+  const point = getPosition(event);
   lastX = point.x;
   lastY = point.y;
-  canvas.setPointerCapture(event.pointerId);
+
+  wrap.setPointerCapture(event.pointerId);
 });
 
-canvas.addEventListener("pointermove", (event) => {
-  if (!dragging || !photo) return;
-  const point = pointerPosition(event);
-  photoX += point.x - lastX;
-  photoY += point.y - lastY;
+wrap.addEventListener("pointermove", event => {
+  if (!dragging || !photoImg) return;
+
+  const point = getPosition(event);
+
+  offsetX += point.x - lastX;
+  offsetY += point.y - lastY;
+
   lastX = point.x;
   lastY = point.y;
-  draw();
+
+  drawPhoto();
 });
 
-canvas.addEventListener("pointerup", () => {
+wrap.addEventListener("pointerup", () => {
   dragging = false;
 });
 
-canvas.addEventListener("pointercancel", () => {
+wrap.addEventListener("pointercancel", () => {
   dragging = false;
 });
 
-downloadButton.addEventListener("click", () => {
-  if (!photo || !frameReady) {
-    alert("Please upload a portrait and wait for the frame to load.");
+downloadBtn.addEventListener("click", async () => {
+  if (!photoImg || !frameLoaded) {
+    alert("Please upload a photo and wait for the frame to load.");
     return;
   }
 
-  canvas.toBlob(async (blob) => {
+  const output = document.createElement("canvas");
+  output.width = SIZE;
+  output.height = SIZE;
+
+  const ctx = output.getContext("2d");
+  ctx.drawImage(photoCanvas, 0, 0);
+  ctx.drawImage(frameCanvas, 0, 0);
+
+  output.toBlob(async blob => {
     if (!blob) {
-      alert("The image could not be prepared. Please try again.");
+      alert("Unable to create your image. Please try again.");
       return;
     }
 
@@ -583,17 +673,17 @@ downloadButton.addEventListener("click", () => {
 
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
+
     link.href = url;
     link.download = "liviaedenic27.png";
+
     document.body.appendChild(link);
     link.click();
     link.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1500);
+
+    setTimeout(() => URL.revokeObjectURL(url), 3000);
   }, "image/png");
 });
-
-draw();
 </script>
 </body>
 </html>
-
