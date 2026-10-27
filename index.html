@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff6f2">
-<title>Livia Nunes's Garden of 27 — #LiviaEdenic27</title>
+<meta name="theme-color" content="#f9e9ed">
+<title>Livia's Edenic Arbor — #LiviaEdenic27</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,17 +13,18 @@
 
 <style>
 :root {
-  --bg: #fff6f2;
-  --panel: #fffbf9;
-  --accent: #fb8ba3;
-  --accent2: #a9a13a;
-  --text: #633044;
+  --rose: #f58ba5;
+  --rose-light: #f8d4df;
+  --wine: #633044;
   --muted: #a77c89;
-  --line: #f8d6df;
+  --ivory: #fffaf8;
+  --sage: #9da45b;
+  --line: rgba(248, 173, 193, .55);
 }
 
 * {
   box-sizing: border-box;
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 html {
@@ -32,25 +33,31 @@ html {
 
 body {
   margin: 0;
-  padding: 24px;
+  padding: 25px 22px;
   min-height: 100vh;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  color: var(--text);
-  background-color: var(--bg);
+  color: var(--wine);
+  background-color: #f9e9ed;
   background-image:
     linear-gradient(
-      rgba(255, 246, 242, .28),
-      rgba(255, 235, 241, .30)
+      180deg,
+      rgba(255, 246, 245, .18),
+      rgba(246, 229, 234, .16)
     ),
     url("background.jpg");
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-position: center top;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 18px;
 }
 
-* {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
 }
 
 .wrap {
@@ -59,104 +66,78 @@ body {
   margin: 0 auto;
 }
 
+/* Main cards */
+
 .info-card,
 .card,
 .extra-card {
-  background: rgba(255, 251, 249, .96);
-  border: 1px solid rgba(251, 139, 163, .35);
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(190, 54, 89, .14);
+  background: rgba(255, 250, 248, .96);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(166, 87, 112, .10);
+  margin-bottom: 24px;
 }
 
 .info-card {
   padding: 28px 24px;
   text-align: center;
-  margin-bottom: 16px;
 }
 
 .logo {
   display: block;
   width: 88px;
   height: 88px;
+  margin: 0 auto 15px;
   object-fit: cover;
-  border: 3px solid var(--accent);
   border-radius: 50%;
-  margin: 0 auto 14px;
-  background: #fff;
+  border: 4px solid var(--rose);
+  background: #fff0f3;
 }
 
 .campaign-name {
-  color: var(--text);
-  font-size: 1.7rem;
+  margin: 0 0 13px;
+  color: var(--wine);
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.25;
-  margin: 0 0 10px;
 }
 
 .campaign-desc {
+  margin: 0 0 15px;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1rem;
   font-weight: 500;
   font-style: italic;
-  line-height: 1.55;
-  text-align: center;
-  margin: 0 0 12px;
+  line-height: 1.65;
 }
 
 .campaign-date {
+  margin: 17px 0 0;
   color: var(--muted);
-  font-size: 1rem;
-  margin: 0 0 18px;
+  font-size: 1.08rem;
+  line-height: 1.5;
 }
 
-.supporter-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-width: 145px;
-  padding: 11px 20px;
-  background: rgba(251, 139, 163, .09);
-  border: 1px solid rgba(251, 139, 163, .35);
-  border-radius: 999px;
-}
-
-.heart {
-  color: var(--accent);
-  font-size: 1.4rem;
-}
-
-.supporter-count {
-  display: block;
-  color: var(--accent2);
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
-}
-
-.supporter-label {
-  display: block;
-  color: var(--muted);
-  font-size: .95rem;
-}
+/* Twibbon maker */
 
 .card {
-  padding: 28px;
-  margin-bottom: 16px;
+  padding: 25px;
 }
 
 .canvas-wrap {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 16px;
   overflow: hidden;
-  background:
-    repeating-conic-gradient(
-      #ffe6dc 0% 25%,
-      #fff6f2 0% 50%
-    ) 50% / 24px 24px;
+  border-radius: 23px;
+  background-color: #fff1f3;
+  background-image:
+    linear-gradient(45deg, #fbe6e4 25%, transparent 25%),
+    linear-gradient(-45deg, #fbe6e4 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #fbe6e4 75%),
+    linear-gradient(-45deg, transparent 75%, #fbe6e4 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
   touch-action: none;
   cursor: grab;
 }
@@ -165,162 +146,234 @@ body {
   cursor: grabbing;
 }
 
-canvas {
+.canvas-wrap canvas {
   position: absolute;
   inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
+  touch-action: none;
 }
 
 .controls {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-top: 18px;
+  gap: 16px;
+  margin-top: 20px;
 }
 
-.row {
-  display: flex;
-  gap: 10px;
-}
-
-label.file-btn,
-button {
-  flex: 1;
-  border-radius: 12px;
-  padding: 13px 12px;
-  font-size: 1.12rem;
+.file-btn {
+  display: block;
+  width: 100%;
+  padding: 15px 12px;
+  border: 2px solid var(--rose-light);
+  border-radius: 18px;
+  background: #fff0f2;
+  color: var(--wine);
+  font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
-  transition: .15s ease;
+  transition: background .2s ease;
 }
 
-label.file-btn {
-  display: block;
-  background: rgba(251, 139, 163, .12);
-  color: var(--text);
-  border: 1px solid rgba(251, 139, 163, .35);
+.file-btn:hover {
+  background: #ffe5eb;
 }
 
-label.file-btn:hover,
-button:hover {
-  transform: translateY(-1px);
-}
-
-input[type="file"] {
+#photoInput {
   display: none;
 }
 
 .zoom-label {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
   color: var(--muted);
-  font-size: 1rem;
-  margin-bottom: 7px;
+  font-size: 1.12rem;
 }
 
 #zoomRange {
+  display: block;
   width: 100%;
-  accent-color: var(--accent);
+  accent-color: var(--rose);
+  cursor: pointer;
 }
 
-#resetBtn {
-  color: var(--text);
-  background: rgba(171, 164, 21, .12);
-  border: 1px solid rgba(171, 164, 21, .32);
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-#downloadBtn {
-  color: white;
+.btn {
+  min-height: 78px;
+  padding: 12px 9px;
+  border: 2px solid #e5dfb1;
+  border-radius: 19px;
+  background: #f5f1df;
+  color: var(--wine);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.download {
+  border-color: #f6d3dc;
   background: linear-gradient(
-    100deg,
+    110deg,
     #facbd6,
-    #f3d3d8,
-    #dfe3a7
+    #f4dce0 55%,
+    #dfe3aa
   );
-  border: 1px solid #f9d3dd;
+  color: #fffdf9;
 }
 
-#downloadBtn:disabled {
-  opacity: .45;
+.btn:disabled {
+  opacity: .5;
   cursor: not-allowed;
   transform: none;
 }
 
 .hint {
+  margin: 20px 0 0;
   color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.5;
   text-align: center;
-  font-size: 1rem;
-  line-height: 1.45;
-  margin: 18px 0 0;
 }
 
+/* Floral, petal-like link cards */
+
 .extra-card {
-  padding: 22px 24px;
-  margin-bottom: 16px;
+  padding: 23px 22px;
 }
 
 .extra-card h3 {
-  color: var(--text);
-  font-size: 1.35rem;
+  margin: 0 0 17px;
+  color: var(--wine);
+  font-size: 1.55rem;
   font-weight: 700;
-  margin: 0 0 14px;
+  line-height: 1.3;
 }
 
 .link-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 17px 20px;
+  margin-top: 13px;
+  color: var(--wine);
   text-decoration: none;
-  background: rgba(251, 139, 163, .08);
-  border: 1px solid rgba(251, 139, 163, .28);
-  border-radius: 13px;
-  transition: .15s ease;
+  background: rgba(255, 239, 242, .85);
+  border: 1px solid rgba(248, 173, 193, .55);
+
+  /* Soft organic petal shape instead of square corners */
+  border-radius: 36px 25px 34px 24px / 25px 35px 24px 34px;
+
+  box-shadow: 0 5px 14px rgba(190, 93, 121, .045);
+  transition:
+    background .2s ease,
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.link-item:first-of-type {
+  margin-top: 0;
 }
 
 .link-item:hover {
-  background: rgba(251, 139, 163, .16);
-  transform: translateY(-1px);
+  background: rgba(255, 229, 236, .95);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(190, 93, 121, .08);
 }
 
 .link-item-title {
-  color: var(--text);
-  font-size: 1.2rem;
+  margin: 0 0 3px;
+  color: var(--wine);
+  font-size: 1.35rem;
   font-weight: 700;
-  margin: 0 0 2px;
+  line-height: 1.25;
 }
 
 .link-item-desc {
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.3;
   margin: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.35;
 }
 
-.link-item-arrow {
-  color: var(--accent2);
-  font-size: 1.6rem;
-  flex-shrink: 0;
+/* Credits */
+
+.credit-intro {
+  margin: -5px 0 17px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
+.credit-item {
+  display: block;
+  padding: 17px 20px;
+  margin-top: 13px;
+  text-decoration: none;
+  background: rgba(255, 239, 242, .85);
+  border: 1px solid rgba(248, 173, 193, .55);
+  border-radius: 25px 36px 24px 34px / 34px 24px 35px 25px;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.credit-item:hover {
+  background: #ffe8ee;
+  transform: translateY(-2px);
+}
+
+.credit-name {
+  margin: 0 0 4px;
+  color: var(--wine);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.credit-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.35;
 }
 
 .footer-note {
-  text-align: center;
-  font-size: 1rem;
+  margin: 22px 0 8px;
   color: var(--muted);
-  margin: 20px 0 0;
-  letter-spacing: .03em;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
 }
+
+/* Mobile layout */
 
 @media (max-width: 480px) {
   body {
-    padding: 14px;
+    padding: 22px 18px;
+    background-attachment: scroll;
+  }
+
+  .wrap {
+    width: 100%;
   }
 
   .info-card {
-    padding: 26px 20px;
+    padding: 27px 21px;
   }
 
   .card {
@@ -328,20 +381,45 @@ input[type="file"] {
   }
 
   .extra-card {
-    padding: 20px;
+    padding: 22px 19px;
   }
 
   .campaign-name {
-    font-size: 1.65rem;
+    font-size: 1.75rem;
   }
 
   .campaign-desc {
-    font-size: 1.04rem;
+    font-size: .98rem;
+    line-height: 1.65;
   }
 
-  label.file-btn,
-  button {
-    font-size: 1rem;
+  .campaign-date {
+    font-size: 1.03rem;
+  }
+
+  .canvas-wrap {
+    border-radius: 20px;
+  }
+
+  .btn {
+    min-height: 76px;
+    padding: 10px 7px;
+    font-size: 1.05rem;
+  }
+
+  .extra-card h3 {
+    font-size: 1.45rem;
+  }
+
+  .link-item-title,
+  .credit-name {
+    font-size: 1.25rem;
+  }
+
+  .link-item-desc,
+  .credit-desc,
+  .credit-intro {
+    font-size: 1.02rem;
   }
 }
 </style>
@@ -350,17 +428,16 @@ input[type="file"] {
 <body>
 <div class="wrap">
 
-  <!-- INTRODUCTION -->
+  <!-- JUBILEE INTRODUCTION -->
   <section class="info-card">
     <img
       class="logo"
-      id="logoImg"
       src="livia-profile.jpg"
       alt="Livia's portrait"
       onerror="this.style.display='none'"
     >
 
-    <p class="campaign-name">#LiviaEdenic27</p>
+    <h1 class="campaign-name">#LiviaEdenic27</h1>
 
     <p class="campaign-desc">
       A hallowed fascicle of tender oblation, aureate phantasies,
@@ -372,15 +449,9 @@ input[type="file"] {
       in holy bloom through #LiviaEdenic27! ♡
     </p>
 
-    <p class="campaign-date">A celebration woven with love and wonder</p>
-
-    <div class="supporter-pill">
-      <span class="heart">♡</span>
-      <span>
-        <span class="supporter-count" id="supporterCount">1</span>
-        <span class="supporter-label">Supporters</span>
-      </span>
-    </div>
+    <p class="campaign-date">
+      A celebration woven with love and wonder
+    </p>
   </section>
 
   <!-- TWIBBON MAKER -->
@@ -391,22 +462,36 @@ input[type="file"] {
     </div>
 
     <div class="controls">
-      <div class="row">
-        <label class="file-btn" for="photoInput">📷 Upload Photo</label>
-        <input type="file" id="photoInput" accept="image/*">
-      </div>
+      <label class="file-btn" for="photoInput">
+        📷 Upload Photo
+      </label>
+
+      <input id="photoInput" type="file" accept="image/*">
 
       <div>
         <div class="zoom-label">
-          <span>Zoom</span>
+          <label for="zoomRange">Zoom</label>
           <span id="zoomVal">100%</span>
         </div>
-        <input type="range" id="zoomRange" min="50" max="300" value="100">
+
+        <input
+          type="range"
+          id="zoomRange"
+          min="50"
+          max="300"
+          value="100"
+          disabled
+        >
       </div>
 
-      <div class="row">
-        <button id="resetBtn">↺ Reset Position</button>
-        <button id="downloadBtn" disabled>⬇ Download HD</button>
+      <div class="button-row">
+        <button class="btn" id="resetBtn" disabled>
+          ↺ Reset Position
+        </button>
+
+        <button class="btn download" id="downloadBtn" disabled>
+          ⬇ Download HD
+        </button>
       </div>
     </div>
 
@@ -416,55 +501,73 @@ input[type="file"] {
     </p>
   </section>
 
-  <!-- TELEGRAM LINKS -->
+  <!-- CELEBRANT LINKS -->
   <section class="extra-card">
     <h3>✧ Find the Celebrant</h3>
 
-    <a class="link-item" href="https://t.me/ettourdearly"
-       target="_blank" rel="noopener">
-      <div>
-        <p class="link-item-title">Charmaine Fernsby</p>
-        <p class="link-item-desc">Visit my personal Telegram account.</p>
-      </div>
-      <span class="link-item-arrow">↗</span>
+    <a
+      class="link-item"
+      href="https://t.me/ettourdearly"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <p class="link-item-title">Charmaine Fernsby</p>
+      <p class="link-item-desc">
+        Visit my personal Telegram account.
+      </p>
     </a>
 
-    <a class="link-item" href="https://t.me/faaierie"
-       target="_blank" rel="noopener" style="margin-top:10px">
-      <div>
-        <p class="link-item-title">Jubilee Celebration Channel</p>
-        <p class="link-item-desc">Visit the celebration sanctuary.</p>
-      </div>
-      <span class="link-item-arrow">↗</span>
+    <a
+      class="link-item"
+      href="https://t.me/faaierie"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <p class="link-item-title">Jubilee Celebration Channel</p>
+      <p class="link-item-desc">
+        Visit the celebration sanctuary.
+      </p>
     </a>
   </section>
 
   <!-- CREDITS -->
   <section class="extra-card">
-    <h3>♡ Special Thanks</h3>
+    <h3>✿ Gratitude in Bloom</h3>
 
-    <a class="link-item" href="https://t.me/artlucas"
-       target="_blank" rel="noopener">
-      <div>
-        <p class="link-item-title">@artlucas</p>
-        <p class="link-item-desc">With appreciation for the artistry.</p>
-      </div>
-      <span class="link-item-arrow">↗</span>
+    <p class="credit-intro">
+      With heartfelt appreciation for the creative hands
+      and kindred spirits who helped this little dream bloom.
+    </p>
+
+    <a
+      class="credit-item"
+      href="https://t.me/artlucas"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <p class="credit-name">@artlucas</p>
+      <p class="credit-desc">
+        With appreciation for the artistry.
+      </p>
     </a>
 
-    <a class="link-item" href="https://t.me/trinketslab"
-       target="_blank" rel="noopener" style="margin-top:10px">
-      <div>
-        <p class="link-item-title">@trinketslab</p>
-        <p class="link-item-desc">With gratitude for the collaboration.</p>
-      </div>
-      <span class="link-item-arrow">↗</span>
+    <a
+      class="credit-item"
+      href="https://t.me/trinketslab"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <p class="credit-name">@trinketslab</p>
+      <p class="credit-desc">
+        With gratitude for the collaboration.
+      </p>
     </a>
   </section>
 
   <p class="footer-note">
-    #LiviaEdenic27 · Made with love and gratitude ♡
+    A little garden of wishes, lovingly gathered for #LiviaEdenic27 ♡
   </p>
+
 </div>
 
 <script>
@@ -473,150 +576,172 @@ const SIZE = 1080;
 const photoCanvas = document.getElementById("photoCanvas");
 const frameCanvas = document.getElementById("frameCanvas");
 
-const pCtx = photoCanvas.getContext("2d");
-const fCtx = frameCanvas.getContext("2d");
+const photoCtx = photoCanvas.getContext("2d");
+const frameCtx = frameCanvas.getContext("2d");
 
-const wrap = document.getElementById("canvasWrap");
+const canvasWrap = document.getElementById("canvasWrap");
 const photoInput = document.getElementById("photoInput");
 const zoomRange = document.getElementById("zoomRange");
 const zoomVal = document.getElementById("zoomVal");
 const resetBtn = document.getElementById("resetBtn");
 const downloadBtn = document.getElementById("downloadBtn");
 
-let photoImg = null;
-let frameImg = new Image();
+let photo = null;
+let frameLoaded = false;
 
-let scale = 1;
+let zoom = 1;
 let baseScale = 1;
 let offsetX = 0;
 let offsetY = 0;
+
 let dragging = false;
 let lastX = 0;
 let lastY = 0;
-let frameLoaded = false;
 
-frameImg.onload = () => {
+const frame = new Image();
+
+frame.onload = () => {
   frameLoaded = true;
   drawFrame();
 };
 
-frameImg.onerror = () => {
-  console.error("Could not load twibbon.png. Check the filename.");
+frame.onerror = () => {
+  console.error(
+    "Could not load twibbon.png. Check that it exists in the repository root."
+  );
 };
 
-frameImg.src = "twibbon.png";
+frame.src = "twibbon.png";
 
 function drawFrame() {
-  fCtx.clearRect(0, 0, SIZE, SIZE);
+  frameCtx.clearRect(0, 0, SIZE, SIZE);
+
   if (frameLoaded) {
-    fCtx.drawImage(frameImg, 0, 0, SIZE, SIZE);
+    frameCtx.drawImage(frame, 0, 0, SIZE, SIZE);
   }
 }
 
 function drawPhoto() {
-  pCtx.clearRect(0, 0, SIZE, SIZE);
+  photoCtx.clearRect(0, 0, SIZE, SIZE);
 
-  if (!photoImg) return;
+  if (!photo) {
+    photoCtx.fillStyle = "#fff0f3";
+    photoCtx.fillRect(0, 0, SIZE, SIZE);
 
-  const w = photoImg.naturalWidth * baseScale * scale;
-  const h = photoImg.naturalHeight * baseScale * scale;
+    photoCtx.fillStyle = "#a77c89";
+    photoCtx.textAlign = "center";
+    photoCtx.font = "36px Georgia";
+    photoCtx.fillText("Your portrait will appear here", SIZE / 2, SIZE / 2);
 
-  const x = SIZE / 2 - w / 2 + offsetX;
-  const y = SIZE / 2 - h / 2 + offsetY;
+    return;
+  }
 
-  pCtx.drawImage(photoImg, x, y, w, h);
+  const width = photo.naturalWidth * baseScale * zoom;
+  const height = photo.naturalHeight * baseScale * zoom;
+
+  const x = (SIZE - width) / 2 + offsetX;
+  const y = (SIZE - height) / 2 + offsetY;
+
+  photoCtx.drawImage(photo, x, y, width, height);
+}
+
+function redraw() {
+  drawPhoto();
+  drawFrame();
 }
 
 photoInput.addEventListener("change", event => {
   const file = event.target.files[0];
+
   if (!file) return;
 
   if (!file.type.startsWith("image/")) {
-    alert("Please select an image file.");
+    alert("Please choose a valid image file.");
     return;
   }
 
   const reader = new FileReader();
 
   reader.onload = () => {
-    const img = new Image();
+    const image = new Image();
 
-    img.onload = () => {
-      photoImg = img;
+    image.onload = () => {
+      photo = image;
 
       baseScale = Math.max(
-        SIZE / img.naturalWidth,
-        SIZE / img.naturalHeight
+        SIZE / photo.naturalWidth,
+        SIZE / photo.naturalHeight
       );
 
-      scale = 1;
+      zoom = 1;
       offsetX = 0;
       offsetY = 0;
 
-      zoomRange.value = 100;
+      zoomRange.value = "100";
       zoomVal.textContent = "100%";
 
-      drawPhoto();
-
+      zoomRange.disabled = false;
+      resetBtn.disabled = false;
       downloadBtn.disabled = false;
+
+      redraw();
     };
 
-    img.src = reader.result;
+    image.onerror = () => {
+      alert("This image could not be opened. Please choose another photo.");
+    };
+
+    image.src = reader.result;
   };
 
   reader.readAsDataURL(file);
 });
 
 zoomRange.addEventListener("input", () => {
-  scale = Number(zoomRange.value) / 100;
+  zoom = Number(zoomRange.value) / 100;
   zoomVal.textContent = zoomRange.value + "%";
   drawPhoto();
 });
 
 resetBtn.addEventListener("click", () => {
-  scale = 1;
+  if (!photo) return;
+
+  zoom = 1;
   offsetX = 0;
   offsetY = 0;
 
-  zoomRange.value = 100;
+  zoomRange.value = "100";
   zoomVal.textContent = "100%";
 
   drawPhoto();
 });
 
-function getPosition(event) {
-  const rect = wrap.getBoundingClientRect();
-
-  const clientX = event.touches
-    ? event.touches[0].clientX
-    : event.clientX;
-
-  const clientY = event.touches
-    ? event.touches[0].clientY
-    : event.clientY;
+function getCanvasPoint(event) {
+  const rect = canvasWrap.getBoundingClientRect();
 
   return {
-    x: (clientX - rect.left) * SIZE / rect.width,
-    y: (clientY - rect.top) * SIZE / rect.height
+    x: (event.clientX - rect.left) * SIZE / rect.width,
+    y: (event.clientY - rect.top) * SIZE / rect.height
   };
 }
 
-wrap.addEventListener("pointerdown", event => {
-  if (!photoImg) return;
+canvasWrap.addEventListener("pointerdown", event => {
+  if (!photo) return;
 
   dragging = true;
 
-  const point = getPosition(event);
+  const point = getCanvasPoint(event);
+
   lastX = point.x;
   lastY = point.y;
 
-  wrap.setPointerCapture(event.pointerId);
+  canvasWrap.setPointerCapture(event.pointerId);
 });
 
-wrap.addEventListener("pointermove", event => {
-  if (!dragging || !photoImg) return;
+canvasWrap.addEventListener("pointermove", event => {
+  if (!dragging || !photo) return;
 
-  const point = getPosition(event);
+  const point = getCanvasPoint(event);
 
   offsetX += point.x - lastX;
   offsetY += point.y - lastY;
@@ -627,17 +752,17 @@ wrap.addEventListener("pointermove", event => {
   drawPhoto();
 });
 
-wrap.addEventListener("pointerup", () => {
+canvasWrap.addEventListener("pointerup", () => {
   dragging = false;
 });
 
-wrap.addEventListener("pointercancel", () => {
+canvasWrap.addEventListener("pointercancel", () => {
   dragging = false;
 });
 
 downloadBtn.addEventListener("click", async () => {
-  if (!photoImg || !frameLoaded) {
-    alert("Please upload a photo and wait for the frame to load.");
+  if (!photo || !frameLoaded) {
+    alert("Please upload a photo and wait for the twibbon frame to load.");
     return;
   }
 
@@ -645,13 +770,14 @@ downloadBtn.addEventListener("click", async () => {
   output.width = SIZE;
   output.height = SIZE;
 
-  const ctx = output.getContext("2d");
-  ctx.drawImage(photoCanvas, 0, 0);
-  ctx.drawImage(frameCanvas, 0, 0);
+  const outputCtx = output.getContext("2d");
+
+  outputCtx.drawImage(photoCanvas, 0, 0);
+  outputCtx.drawImage(frameCanvas, 0, 0);
 
   output.toBlob(async blob => {
     if (!blob) {
-      alert("Unable to create your image. Please try again.");
+      alert("The image could not be created. Please try again.");
       return;
     }
 
@@ -665,6 +791,7 @@ downloadBtn.addEventListener("click", async () => {
           files: [file],
           title: "My #LiviaEdenic27 Twibbon"
         });
+
         return;
       } catch (error) {
         if (error.name === "AbortError") return;
@@ -684,6 +811,9 @@ downloadBtn.addEventListener("click", async () => {
     setTimeout(() => URL.revokeObjectURL(url), 3000);
   }, "image/png");
 });
+
+drawPhoto();
+drawFrame();
 </script>
 </body>
 </html>
