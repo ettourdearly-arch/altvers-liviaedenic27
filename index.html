@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f8e8ec">
-<title>Livia's Edenic Arbor — #LiviaEdenic27</title>
+<title>Livia's Edenic Arbor | #LiviaEdenic27</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +14,11 @@
 <style>
 :root {
   --rose: #f58ba5;
-  --rose-light: #f8d4df;
+  --pale: #fce8ed;
   --wine: #633044;
   --muted: #a77c89;
+  --line: rgba(248,173,193,.58);
   --ivory: #fffaf8;
-  --line: rgba(248, 173, 193, .55);
 }
 
 * {
@@ -32,7 +32,7 @@ html {
 
 body {
   margin: 0;
-  padding: 20px 18px;
+  padding: 20px 17px;
   min-height: 100vh;
   color: var(--wine);
   background-color: #f8e8ec;
@@ -47,7 +47,7 @@ body {
 .wrap {
   width: 100%;
   max-width: 460px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 /* Main cards */
@@ -55,10 +55,10 @@ body {
 .info-card,
 .card,
 .extra-card {
-  background: rgba(255, 250, 248, .96);
+  background: rgba(255,250,248,.96);
   border: 1px solid var(--line);
-  border-radius: 28px;
-  box-shadow: 0 10px 25px rgba(166, 87, 112, .07);
+  border-radius: 27px;
+  box-shadow: 0 10px 25px rgba(166,87,112,.07);
   margin-bottom: 15px;
 }
 
@@ -68,19 +68,18 @@ body {
 }
 
 .logo {
-  display: block;
   width: 86px;
   height: 86px;
-  margin: 0 auto 14px;
+  display: block;
   object-fit: cover;
+  margin: 0 auto 14px;
   border-radius: 50%;
   border: 4px solid var(--rose);
-  background: #fff0f3;
+  background: var(--pale);
 }
 
 .campaign-name {
   margin: 0 0 12px;
-  color: var(--wine);
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.25;
@@ -89,9 +88,9 @@ body {
 .campaign-desc {
   margin: 0 0 13px;
   color: var(--muted);
-  font-size: .98rem;
-  font-weight: 500;
+  font-size: .96rem;
   font-style: italic;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -102,7 +101,7 @@ body {
   line-height: 1.45;
 }
 
-/* Twibbon maker */
+/* Twibbon editor */
 
 .card {
   padding: 19px;
@@ -111,7 +110,7 @@ body {
 .canvas-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 19px;
   background: transparent;
@@ -126,9 +125,9 @@ body {
 .canvas-wrap canvas {
   position: absolute;
   inset: 0;
-  display: block;
   width: 100%;
   height: 100%;
+  display: block;
   touch-action: none;
 }
 
@@ -143,7 +142,7 @@ body {
   display: block;
   width: 100%;
   padding: 12px;
-  border: 2px solid var(--rose-light);
+  border: 2px solid #f8d4df;
   border-radius: 16px;
   background: #fff0f2;
   color: var(--wine);
@@ -151,12 +150,11 @@ body {
   font-weight: 700;
   text-align: center;
   cursor: pointer;
-  transition: background .25s ease, transform .25s ease;
+  transition: background .25s, transform .25s;
 }
 
-.file-btn:hover {
-  background: #ffe5eb;
-  transform: translateY(-1px);
+.file-btn:active {
+  transform: scale(.98);
 }
 
 #photoInput {
@@ -166,17 +164,14 @@ body {
 .zoom-label {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 6px;
   color: var(--muted);
   font-size: 1.05rem;
 }
 
 #zoomRange {
-  display: block;
   width: 100%;
   accent-color: var(--rose);
-  cursor: pointer;
 }
 
 .button-row {
@@ -194,26 +189,23 @@ body {
   color: var(--wine);
   font-size: 1rem;
   font-weight: 700;
-  line-height: 1.25;
-  text-align: center;
   cursor: pointer;
-  transition: transform .2s ease, opacity .2s ease;
+  transition: transform .2s, opacity .2s;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
+.btn:active {
+  transform: scale(.97);
 }
 
 .btn.download {
   border-color: #f6d3dc;
-  background: linear-gradient(110deg, #facbd6, #f4dce0 55%, #dfe3aa);
+  background: linear-gradient(110deg,#facbd6,#f4dce0 55%,#dfe3aa);
   color: #fffdf9;
 }
 
 .btn:disabled {
   opacity: .48;
   cursor: not-allowed;
-  transform: none;
 }
 
 .hint {
@@ -224,139 +216,172 @@ body {
   text-align: center;
 }
 
-/* Compact decorative sections */
+/* Horizontal link carousels */
 
 .extra-card {
   padding: 17px;
-  margin-bottom: 14px;
-  border-radius: 24px;
-  box-shadow: 0 7px 18px rgba(166, 87, 112, .055);
+  overflow: hidden;
 }
 
 .extra-card h3 {
-  margin: 0 0 11px;
-  color: var(--wine);
-  font-size: 1.27rem;
+  margin: 0 0 6px;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.3;
 }
 
-.link-item,
-.credit-item {
-  display: block;
-  width: 100%;
-  padding: 11px 15px;
-  margin-top: 8px;
-  color: var(--wine);
+.section-note {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: .96rem;
+  line-height: 1.4;
+}
+
+.carousel {
+  display: flex;
+  gap: 11px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 1px 9px;
+  margin: 0;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #edb7c6 transparent;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: #edb7c6;
+  border-radius: 10px;
+}
+
+.carousel-item {
+  flex: 0 0 83%;
+  min-width: 0;
+  min-height: 105px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 17px;
   text-decoration: none;
-  background: rgba(255, 239, 242, .88);
-  border: 1px solid rgba(248, 173, 193, .55);
-  border-radius: 27px 19px 29px 21px / 19px 27px 21px 29px;
-  box-shadow: none;
-  transition:
-    background .25s ease,
-    transform .25s ease;
-}
-
-.link-item:first-of-type,
-.credit-item:first-of-type {
-  margin-top: 0;
-}
-
-.link-item:hover,
-.credit-item:hover {
-  background: #ffe8ee;
-  transform: translateY(-2px);
-}
-
-.link-item-title,
-.credit-name {
-  margin: 0 0 2px;
   color: var(--wine);
-  font-size: 1.15rem;
+  background: linear-gradient(145deg,#fff1f3,#fffaf7);
+  border: 1px solid rgba(248,173,193,.65);
+
+  /* Different organic flower-petal shape */
+  border-radius: 34px 20px 34px 20px / 20px 34px 20px 34px;
+
+  scroll-snap-align: start;
+  transition: transform .25s, background .25s, box-shadow .25s;
+}
+
+.carousel-item:active {
+  transform: scale(.97);
+}
+
+.carousel-item:hover {
+  background: #ffe9ef;
+  box-shadow: 0 5px 15px rgba(166,87,112,.08);
+}
+
+.item-title {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
-.link-item-desc,
-.credit-desc {
+.item-description {
   margin: 0;
   color: var(--muted);
   font-size: .98rem;
   line-height: 1.3;
 }
 
-.credit-intro {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: .98rem;
-  line-height: 1.4;
+.swipe-hint {
+  margin: 5px 2px 0;
+  color: #ae8490;
+  font-size: .86rem;
+  font-style: italic;
+  text-align: right;
 }
 
 .footer-note {
-  margin: 18px 0 5px;
+  margin: 23px 8px 12px;
   color: var(--muted);
-  font-size: .98rem;
+  font-size: 1rem;
   font-style: italic;
-  line-height: 1.45;
+  line-height: 1.5;
   text-align: center;
 }
 
-/* Scroll reveal: fade in and gently slide upward */
+/* Noticeable scroll entrance motion */
 
-.reveal {
+.motion {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(55px) scale(.96);
+  filter: blur(3px);
   transition:
-    opacity .75s ease,
-    transform .75s cubic-bezier(.22, 1, .36, 1);
-  will-change: opacity, transform;
+    opacity .85s ease,
+    transform .85s cubic-bezier(.16,1,.3,1),
+    filter .85s ease;
+  will-change: opacity, transform, filter;
 }
 
-.reveal.is-visible {
+.motion.from-left {
+  transform: translateX(-65px) scale(.96);
+}
+
+.motion.from-right {
+  transform: translateX(65px) scale(.96);
+}
+
+.motion.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0,0) scale(1);
+  filter: blur(0);
 }
 
-/* Subtle stagger for the individual link bubbles */
+/* Carousel bubbles enter one after another */
 
-.reveal-child {
+.carousel.motion .carousel-item {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(25px) scale(.96);
   transition:
-    opacity .6s ease,
-    transform .6s cubic-bezier(.22, 1, .36, 1);
+    opacity .65s ease,
+    transform .65s cubic-bezier(.16,1,.3,1),
+    background .25s;
 }
 
-.reveal.is-visible .reveal-child {
+.carousel.motion.is-visible .carousel-item {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-.reveal.is-visible .reveal-child:nth-child(2) {
-  transition-delay: .09s;
+.carousel.motion.is-visible .carousel-item:nth-child(2) {
+  transition-delay: .14s;
 }
 
-.reveal.is-visible .reveal-child:nth-child(3) {
-  transition-delay: .17s;
-}
-
-/* Respect reduced-motion accessibility preferences */
+/* Accessibility */
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
+  html {
+    scroll-behavior: auto;
   }
 
-  .reveal,
-  .reveal-child {
+  .motion,
+  .motion.from-left,
+  .motion.from-right,
+  .carousel.motion .carousel-item {
     opacity: 1;
     transform: none;
+    filter: none;
+    transition: none;
   }
 }
 
@@ -364,9 +389,6 @@ body {
   body {
     padding: 19px 17px;
     background-size: 100% auto;
-    background-position: center top;
-    background-repeat: repeat-y;
-    background-attachment: scroll;
   }
 
   .info-card {
@@ -378,8 +400,7 @@ body {
   }
 
   .extra-card {
-    padding: 16px;
-    margin-bottom: 13px;
+    padding: 15px;
   }
 
   .campaign-name {
@@ -387,27 +408,16 @@ body {
   }
 
   .campaign-desc {
-    font-size: .96rem;
-    line-height: 1.58;
-  }
-
-  .canvas-wrap {
-    border-radius: 17px;
+    font-size: .94rem;
   }
 
   .extra-card h3 {
     font-size: 1.22rem;
   }
 
-  .link-item-title,
-  .credit-name {
-    font-size: 1.1rem;
-  }
-
-  .link-item-desc,
-  .credit-desc,
-  .credit-intro {
-    font-size: .96rem;
+  .carousel-item {
+    flex-basis: 83%;
+    min-height: 100px;
   }
 }
 </style>
@@ -416,7 +426,8 @@ body {
 <body>
 <div class="wrap">
 
-  <section class="info-card reveal">
+  <!-- INTRODUCTION -->
+  <section class="info-card motion" data-motion="up">
     <img
       class="logo"
       src="livia-profile.jpg"
@@ -441,7 +452,8 @@ body {
     </p>
   </section>
 
-  <section class="card reveal">
+  <!-- TWIBBON MAKER -->
+  <section class="card motion" data-motion="right">
     <div class="canvas-wrap" id="canvasWrap">
       <canvas id="photoCanvas" width="1080" height="1080"></canvas>
       <canvas id="frameCanvas" width="1080" height="1080"></canvas>
@@ -456,15 +468,7 @@ body {
           <label for="zoomRange">Zoom</label>
           <span id="zoomVal">100%</span>
         </div>
-
-        <input
-          type="range"
-          id="zoomRange"
-          min="50"
-          max="300"
-          value="100"
-          disabled
-        >
+        <input type="range" id="zoomRange" min="50" max="300" value="100" disabled>
       </div>
 
       <div class="button-row">
@@ -479,54 +483,65 @@ body {
     </p>
   </section>
 
-  <section class="extra-card reveal">
+  <!-- CELEBRANT CAROUSEL -->
+  <section class="extra-card motion" data-motion="left">
     <h3>✧ Find the Celebrant</h3>
+    <p class="section-note">A little way to reach the celebrant.</p>
 
-    <a class="link-item reveal-child"
-       href="https://t.me/ettourdearly"
-       target="_blank" rel="noopener noreferrer">
-      <p class="link-item-title">Charmaine Fernsby</p>
-      <p class="link-item-desc">Visit my personal Telegram account.</p>
-    </a>
+    <div class="carousel motion" data-motion="up" aria-label="Celebrant links">
+      <a class="carousel-item"
+         href="https://t.me/ettourdearly"
+         target="_blank" rel="noopener noreferrer">
+        <p class="item-title">Charmaine Fernsby</p>
+        <p class="item-description">Visit my personal Telegram account.</p>
+      </a>
 
-    <a class="link-item reveal-child"
-       href="https://t.me/faaierie"
-       target="_blank" rel="noopener noreferrer">
-      <p class="link-item-title">Jubilee Celebration Channel</p>
-      <p class="link-item-desc">Visit the celebration sanctuary.</p>
-    </a>
+      <a class="carousel-item"
+         href="https://t.me/faaierie"
+         target="_blank" rel="noopener noreferrer">
+        <p class="item-title">Jubilee Celebration Channel</p>
+        <p class="item-description">Visit the celebration sanctuary.</p>
+      </a>
+    </div>
+
+    <p class="swipe-hint">Swipe to discover more ♡</p>
   </section>
 
-  <section class="extra-card reveal">
+  <!-- CREDITS CAROUSEL -->
+  <section class="extra-card motion" data-motion="right">
     <h3>✿ Gratitude in Bloom</h3>
-
-    <p class="credit-intro">
-      With heartfelt appreciation for the creative hands
-      and kindred spirits who helped this little dream bloom.
+    <p class="section-note">
+      With gratitude for the hands that helped this dream bloom.
     </p>
 
-    <a class="credit-item reveal-child"
-       href="https://t.me/artlucas"
-       target="_blank" rel="noopener noreferrer">
-      <p class="credit-name">@artlucas</p>
-      <p class="credit-desc">With appreciation for the artistry.</p>
-    </a>
+    <div class="carousel motion" data-motion="up" aria-label="Credits">
+      <a class="carousel-item"
+         href="https://t.me/artlucas"
+         target="_blank" rel="noopener noreferrer">
+        <p class="item-title">@artlucas</p>
+        <p class="item-description">With appreciation for the artistry.</p>
+      </a>
 
-    <a class="credit-item reveal-child"
-       href="https://t.me/trinketslab"
-       target="_blank" rel="noopener noreferrer">
-      <p class="credit-name">@trinketslab</p>
-      <p class="credit-desc">With gratitude for the collaboration.</p>
-    </a>
+      <a class="carousel-item"
+         href="https://t.me/trinketslab"
+         target="_blank" rel="noopener noreferrer">
+        <p class="item-title">@trinketslab</p>
+        <p class="item-description">With gratitude for the collaboration.</p>
+      </a>
+    </div>
+
+    <p class="swipe-hint">Swipe to discover more ♡</p>
   </section>
 
-  <p class="footer-note reveal">
+  <!-- FINAL WISH -->
+  <p class="footer-note motion" data-motion="up">
     <em>A bound anthology of gentle hopes, preserved for Livia Nunes ♡</em>
   </p>
 
 </div>
 
 <script>
+/* TWIBBON EDITOR */
 const SIZE = 1080;
 
 const photoCanvas = document.getElementById("photoCanvas");
@@ -559,7 +574,7 @@ frame.onload = () => {
 };
 
 frame.onerror = () => {
-  console.error("Unable to load twibbon.png. Check the filename.");
+  console.error("Could not load twibbon.png. Check the filename.");
 };
 
 frame.src = "twibbon.png";
@@ -571,8 +586,6 @@ function drawFrame() {
 
 function drawPhoto() {
   photoCtx.clearRect(0, 0, SIZE, SIZE);
-
-  // Keep the photo canvas empty until a portrait is uploaded.
   if (!photo) return;
 
   const width = photo.naturalWidth * baseScale * zoom;
@@ -581,11 +594,6 @@ function drawPhoto() {
   const y = (SIZE - height) / 2 + offsetY;
 
   photoCtx.drawImage(photo, x, y, width, height);
-}
-
-function redraw() {
-  drawPhoto();
-  drawFrame();
 }
 
 photoInput.addEventListener("change", event => {
@@ -612,20 +620,17 @@ photoInput.addEventListener("change", event => {
       zoom = 1;
       offsetX = 0;
       offsetY = 0;
-
       zoomRange.value = "100";
       zoomVal.textContent = "100%";
       zoomRange.disabled = false;
       resetBtn.disabled = false;
       downloadBtn.disabled = false;
 
-      redraw();
+      drawPhoto();
+      drawFrame();
     };
 
-    image.onerror = () => {
-      alert("This image could not be opened. Please choose another photo.");
-    };
-
+    image.onerror = () => alert("Please choose another photo.");
     image.src = reader.result;
   };
 
@@ -651,7 +656,6 @@ resetBtn.addEventListener("click", () => {
 
 function getCanvasPoint(event) {
   const rect = canvasWrap.getBoundingClientRect();
-
   return {
     x: (event.clientX - rect.left) * SIZE / rect.width,
     y: (event.clientY - rect.top) * SIZE / rect.height
@@ -676,7 +680,6 @@ canvasWrap.addEventListener("pointermove", event => {
   offsetY += point.y - lastY;
   lastX = point.x;
   lastY = point.y;
-
   drawPhoto();
 });
 
@@ -693,13 +696,13 @@ downloadBtn.addEventListener("click", async () => {
   output.width = SIZE;
   output.height = SIZE;
 
-  const outputCtx = output.getContext("2d");
-  outputCtx.drawImage(photoCanvas, 0, 0);
-  outputCtx.drawImage(frameCanvas, 0, 0);
+  const ctx = output.getContext("2d");
+  ctx.drawImage(photoCanvas, 0, 0);
+  ctx.drawImage(frameCanvas, 0, 0);
 
   output.toBlob(async blob => {
     if (!blob) {
-      alert("The image could not be created. Please try again.");
+      alert("Could not create the image. Please try again.");
       return;
     }
 
@@ -723,34 +726,43 @@ downloadBtn.addEventListener("click", async () => {
     const link = document.createElement("a");
     link.href = url;
     link.download = "liviaedenic27.png";
-
     document.body.appendChild(link);
     link.click();
     link.remove();
 
-    setTimeout(() => URL.revokeObjectURL(url), 3000);
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
   }, "image/png");
 });
 
-/* Scroll reveal motion */
-const revealItems = document.querySelectorAll(".reveal");
+/* REPLAYABLE SCROLL MOTION */
+const motionItems = document.querySelectorAll(".motion");
 
 if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
+  const motionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+      } else {
+        // Remove the class when it leaves the viewport so
+        // the entrance animation can replay on the next scroll.
+        entry.target.classList.remove("is-visible");
       }
     });
   }, {
     threshold: 0.12,
-    rootMargin: "0px 0px -35px 0px"
+    rootMargin: "0px 0px -30px 0px"
   });
 
-  revealItems.forEach(item => revealObserver.observe(item));
+  motionItems.forEach(item => {
+    const direction = item.dataset.motion;
+
+    if (direction === "left") item.classList.add("from-left");
+    if (direction === "right") item.classList.add("from-right");
+
+    motionObserver.observe(item);
+  });
 } else {
-  revealItems.forEach(item => item.classList.add("is-visible"));
+  motionItems.forEach(item => item.classList.add("is-visible"));
 }
 
 drawPhoto();
