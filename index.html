@@ -18,7 +18,6 @@
   --wine: #633044;
   --muted: #a77c89;
   --ivory: #fffaf8;
-  --sage: #9da45b;
   --line: rgba(248, 173, 193, .55);
 }
 
@@ -33,14 +32,10 @@ html {
 
 body {
   margin: 0;
-  padding: 24px 18px;
+  padding: 20px 18px;
   min-height: 100vh;
   color: var(--wine);
   background-color: #f8e8ec;
-
-  /* Show the original background without blur or a color overlay.
-     Scale the whole image to the viewport width to avoid cropping
-     its sides on phones. Repeat vertically if needed. */
   background-image: url("background.jpg");
   background-size: 100% auto;
   background-position: center top;
@@ -62,21 +57,21 @@ body {
 .extra-card {
   background: rgba(255, 250, 248, .96);
   border: 1px solid var(--line);
-  border-radius: 30px;
-  box-shadow: 0 12px 28px rgba(166, 87, 112, .08);
-  margin-bottom: 24px;
+  border-radius: 28px;
+  box-shadow: 0 10px 25px rgba(166, 87, 112, .07);
+  margin-bottom: 15px;
 }
 
 .info-card {
-  padding: 28px 24px;
+  padding: 25px 21px;
   text-align: center;
 }
 
 .logo {
   display: block;
-  width: 88px;
-  height: 88px;
-  margin: 0 auto 15px;
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 14px;
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid var(--rose);
@@ -84,33 +79,33 @@ body {
 }
 
 .campaign-name {
-  margin: 0 0 13px;
+  margin: 0 0 12px;
   color: var(--wine);
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
 .campaign-desc {
-  margin: 0 0 15px;
+  margin: 0 0 13px;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: .98rem;
   font-weight: 500;
   font-style: italic;
   line-height: 1.6;
 }
 
 .campaign-date {
-  margin: 17px 0 0;
+  margin: 14px 0 0;
   color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.5;
+  font-size: 1.02rem;
+  line-height: 1.45;
 }
 
 /* Twibbon maker */
 
 .card {
-  padding: 23px;
+  padding: 19px;
 }
 
 .canvas-wrap {
@@ -118,7 +113,7 @@ body {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 21px;
+  border-radius: 19px;
   background: transparent;
   touch-action: none;
   cursor: grab;
@@ -140,27 +135,28 @@ body {
 .controls {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 19px;
+  gap: 13px;
+  margin-top: 17px;
 }
 
 .file-btn {
   display: block;
   width: 100%;
-  padding: 14px 12px;
+  padding: 12px;
   border: 2px solid var(--rose-light);
-  border-radius: 17px;
+  border-radius: 16px;
   background: #fff0f2;
   color: var(--wine);
-  font-size: 1.2rem;
+  font-size: 1.18rem;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
-  transition: background .2s ease;
+  transition: background .25s ease, transform .25s ease;
 }
 
 .file-btn:hover {
   background: #ffe5eb;
+  transform: translateY(-1px);
 }
 
 #photoInput {
@@ -171,9 +167,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
 }
 
 #zoomRange {
@@ -186,17 +182,17 @@ body {
 .button-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
 .btn {
-  min-height: 72px;
-  padding: 11px 8px;
+  min-height: 65px;
+  padding: 10px 7px;
   border: 2px solid #e5dfb1;
-  border-radius: 18px;
+  border-radius: 17px;
   background: #f5f1df;
   color: var(--wine);
-  font-size: 1.08rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.25;
   text-align: center;
@@ -210,12 +206,7 @@ body {
 
 .btn.download {
   border-color: #f6d3dc;
-  background: linear-gradient(
-    110deg,
-    #facbd6,
-    #f4dce0 55%,
-    #dfe3aa
-  );
+  background: linear-gradient(110deg, #facbd6, #f4dce0 55%, #dfe3aa);
   color: #fffdf9;
 }
 
@@ -226,26 +217,26 @@ body {
 }
 
 .hint {
-  margin: 18px 0 0;
+  margin: 15px 0 0;
   color: var(--muted);
-  font-size: 1.02rem;
-  line-height: 1.45;
+  font-size: 1rem;
+  line-height: 1.4;
   text-align: center;
 }
 
-/* Minimal celebrant and credit sections */
+/* Compact decorative sections */
 
 .extra-card {
-  padding: 19px;
-  margin-bottom: 19px;
-  border-radius: 25px;
-  box-shadow: 0 8px 22px rgba(166, 87, 112, .06);
+  padding: 17px;
+  margin-bottom: 14px;
+  border-radius: 24px;
+  box-shadow: 0 7px 18px rgba(166, 87, 112, .055);
 }
 
 .extra-card h3 {
-  margin: 0 0 13px;
+  margin: 0 0 11px;
   color: var(--wine);
-  font-size: 1.35rem;
+  font-size: 1.27rem;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -254,18 +245,17 @@ body {
 .credit-item {
   display: block;
   width: 100%;
-  padding: 12px 16px;
-  margin-top: 10px;
+  padding: 11px 15px;
+  margin-top: 8px;
   color: var(--wine);
   text-decoration: none;
   background: rgba(255, 239, 242, .88);
   border: 1px solid rgba(248, 173, 193, .55);
-
-  /* Soft, asymmetrical petal-like edges */
-  border-radius: 28px 20px 30px 22px / 20px 28px 22px 30px;
-
+  border-radius: 27px 19px 29px 21px / 19px 27px 21px 29px;
   box-shadow: none;
-  transition: background .2s ease, transform .2s ease;
+  transition:
+    background .25s ease,
+    transform .25s ease;
 }
 
 .link-item:first-of-type,
@@ -276,14 +266,14 @@ body {
 .link-item:hover,
 .credit-item:hover {
   background: #ffe8ee;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .link-item-title,
 .credit-name {
-  margin: 0 0 3px;
+  margin: 0 0 2px;
   color: var(--wine);
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -292,94 +282,132 @@ body {
 .credit-desc {
   margin: 0;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.35;
+  font-size: .98rem;
+  line-height: 1.3;
 }
 
 .credit-intro {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.45;
+  font-size: .98rem;
+  line-height: 1.4;
 }
 
 .footer-note {
-  margin: 22px 0 8px;
+  margin: 18px 0 5px;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: .98rem;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.45;
   text-align: center;
 }
 
-/* Mobile layout */
+/* Scroll reveal: fade in and gently slide upward */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity .75s ease,
+    transform .75s cubic-bezier(.22, 1, .36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle stagger for the individual link bubbles */
+
+.reveal-child {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity .6s ease,
+    transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.reveal.is-visible .reveal-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.is-visible .reveal-child:nth-child(2) {
+  transition-delay: .09s;
+}
+
+.reveal.is-visible .reveal-child:nth-child(3) {
+  transition-delay: .17s;
+}
+
+/* Respect reduced-motion accessibility preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .reveal,
+  .reveal-child {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 @media (max-width: 480px) {
   body {
-    padding: 22px 18px;
-
-    /* Keep the background sharp on mobile. */
+    padding: 19px 17px;
     background-size: 100% auto;
     background-position: center top;
     background-repeat: repeat-y;
     background-attachment: scroll;
   }
 
-  .wrap {
-    width: 100%;
-  }
-
   .info-card {
-    padding: 26px 20px;
-    border-radius: 28px;
+    padding: 23px 19px;
   }
 
   .card {
-    padding: 19px;
-    border-radius: 27px;
+    padding: 17px;
   }
 
   .extra-card {
-    padding: 17px 16px;
-    border-radius: 24px;
+    padding: 16px;
+    margin-bottom: 13px;
   }
 
   .campaign-name {
-    font-size: 1.72rem;
+    font-size: 1.68rem;
   }
 
   .campaign-desc {
-    font-size: .98rem;
-    line-height: 1.6;
-  }
-
-  .campaign-date {
-    font-size: 1.02rem;
+    font-size: .96rem;
+    line-height: 1.58;
   }
 
   .canvas-wrap {
-    border-radius: 19px;
-  }
-
-  .btn {
-    min-height: 69px;
-    padding: 10px 7px;
-    font-size: 1rem;
+    border-radius: 17px;
   }
 
   .extra-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.22rem;
   }
 
   .link-item-title,
   .credit-name {
-    font-size: 1.13rem;
+    font-size: 1.1rem;
   }
 
   .link-item-desc,
   .credit-desc,
   .credit-intro {
-    font-size: .98rem;
+    font-size: .96rem;
   }
 }
 </style>
@@ -388,8 +416,7 @@ body {
 <body>
 <div class="wrap">
 
-  <!-- JUBILEE INTRODUCTION -->
-  <section class="info-card">
+  <section class="info-card reveal">
     <img
       class="logo"
       src="livia-profile.jpg"
@@ -414,18 +441,14 @@ body {
     </p>
   </section>
 
-  <!-- TWIBBON MAKER -->
-  <section class="card">
+  <section class="card reveal">
     <div class="canvas-wrap" id="canvasWrap">
       <canvas id="photoCanvas" width="1080" height="1080"></canvas>
       <canvas id="frameCanvas" width="1080" height="1080"></canvas>
     </div>
 
     <div class="controls">
-      <label class="file-btn" for="photoInput">
-        Upload Photo
-      </label>
-
+      <label class="file-btn" for="photoInput">Upload Photo</label>
       <input id="photoInput" type="file" accept="image/*">
 
       <div>
@@ -445,13 +468,8 @@ body {
       </div>
 
       <div class="button-row">
-        <button class="btn" id="resetBtn" disabled>
-          Reset Position
-        </button>
-
-        <button class="btn download" id="downloadBtn" disabled>
-          Download HD
-        </button>
+        <button class="btn" id="resetBtn" disabled>Reset Position</button>
+        <button class="btn download" id="downloadBtn" disabled>Download HD</button>
       </div>
     </div>
 
@@ -461,37 +479,25 @@ body {
     </p>
   </section>
 
-  <!-- FIND THE CELEBRANT -->
-  <section class="extra-card">
+  <section class="extra-card reveal">
     <h3>✧ Find the Celebrant</h3>
 
-    <a
-      class="link-item"
-      href="https://t.me/ettourdearly"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="link-item reveal-child"
+       href="https://t.me/ettourdearly"
+       target="_blank" rel="noopener noreferrer">
       <p class="link-item-title">Charmaine Fernsby</p>
-      <p class="link-item-desc">
-        Visit my personal Telegram account.
-      </p>
+      <p class="link-item-desc">Visit my personal Telegram account.</p>
     </a>
 
-    <a
-      class="link-item"
-      href="https://t.me/faaierie"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="link-item reveal-child"
+       href="https://t.me/faaierie"
+       target="_blank" rel="noopener noreferrer">
       <p class="link-item-title">Jubilee Celebration Channel</p>
-      <p class="link-item-desc">
-        Visit the celebration sanctuary.
-      </p>
+      <p class="link-item-desc">Visit the celebration sanctuary.</p>
     </a>
   </section>
 
-  <!-- GRATITUDE IN BLOOM -->
-  <section class="extra-card">
+  <section class="extra-card reveal">
     <h3>✿ Gratitude in Bloom</h3>
 
     <p class="credit-intro">
@@ -499,32 +505,22 @@ body {
       and kindred spirits who helped this little dream bloom.
     </p>
 
-    <a
-      class="credit-item"
-      href="https://t.me/artlucas"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="credit-item reveal-child"
+       href="https://t.me/artlucas"
+       target="_blank" rel="noopener noreferrer">
       <p class="credit-name">@artlucas</p>
-      <p class="credit-desc">
-        With appreciation for the artistry.
-      </p>
+      <p class="credit-desc">With appreciation for the artistry.</p>
     </a>
 
-    <a
-      class="credit-item"
-      href="https://t.me/trinketslab"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="credit-item reveal-child"
+       href="https://t.me/trinketslab"
+       target="_blank" rel="noopener noreferrer">
       <p class="credit-name">@trinketslab</p>
-      <p class="credit-desc">
-        With gratitude for the collaboration.
-      </p>
+      <p class="credit-desc">With gratitude for the collaboration.</p>
     </a>
   </section>
 
-  <p class="footer-note">
+  <p class="footer-note reveal">
     <em>A bound anthology of gentle hopes, preserved for Livia Nunes ♡</em>
   </p>
 
@@ -535,7 +531,6 @@ const SIZE = 1080;
 
 const photoCanvas = document.getElementById("photoCanvas");
 const frameCanvas = document.getElementById("frameCanvas");
-
 const photoCtx = photoCanvas.getContext("2d");
 const frameCtx = frameCanvas.getContext("2d");
 
@@ -548,12 +543,10 @@ const downloadBtn = document.getElementById("downloadBtn");
 
 let photo = null;
 let frameLoaded = false;
-
 let zoom = 1;
 let baseScale = 1;
 let offsetX = 0;
 let offsetY = 0;
-
 let dragging = false;
 let lastX = 0;
 let lastY = 0;
@@ -566,30 +559,24 @@ frame.onload = () => {
 };
 
 frame.onerror = () => {
-  console.error(
-    "Unable to load twibbon.png. Check the filename and repository."
-  );
+  console.error("Unable to load twibbon.png. Check the filename.");
 };
 
 frame.src = "twibbon.png";
 
 function drawFrame() {
   frameCtx.clearRect(0, 0, SIZE, SIZE);
-
-  if (frameLoaded) {
-    frameCtx.drawImage(frame, 0, 0, SIZE, SIZE);
-  }
+  if (frameLoaded) frameCtx.drawImage(frame, 0, 0, SIZE, SIZE);
 }
 
 function drawPhoto() {
   photoCtx.clearRect(0, 0, SIZE, SIZE);
 
-  // Leave the canvas empty until a portrait is uploaded.
+  // Keep the photo canvas empty until a portrait is uploaded.
   if (!photo) return;
 
   const width = photo.naturalWidth * baseScale * zoom;
   const height = photo.naturalHeight * baseScale * zoom;
-
   const x = (SIZE - width) / 2 + offsetX;
   const y = (SIZE - height) / 2 + offsetY;
 
@@ -603,7 +590,6 @@ function redraw() {
 
 photoInput.addEventListener("change", event => {
   const file = event.target.files[0];
-
   if (!file) return;
 
   if (!file.type.startsWith("image/")) {
@@ -618,7 +604,6 @@ photoInput.addEventListener("change", event => {
 
     image.onload = () => {
       photo = image;
-
       baseScale = Math.max(
         SIZE / photo.naturalWidth,
         SIZE / photo.naturalHeight
@@ -630,7 +615,6 @@ photoInput.addEventListener("change", event => {
 
       zoomRange.value = "100";
       zoomVal.textContent = "100%";
-
       zoomRange.disabled = false;
       resetBtn.disabled = false;
       downloadBtn.disabled = false;
@@ -660,10 +644,8 @@ resetBtn.addEventListener("click", () => {
   zoom = 1;
   offsetX = 0;
   offsetY = 0;
-
   zoomRange.value = "100";
   zoomVal.textContent = "100%";
-
   drawPhoto();
 });
 
@@ -680,11 +662,9 @@ canvasWrap.addEventListener("pointerdown", event => {
   if (!photo) return;
 
   dragging = true;
-
   const point = getCanvasPoint(event);
   lastX = point.x;
   lastY = point.y;
-
   canvasWrap.setPointerCapture(event.pointerId);
 });
 
@@ -692,23 +672,16 @@ canvasWrap.addEventListener("pointermove", event => {
   if (!dragging || !photo) return;
 
   const point = getCanvasPoint(event);
-
   offsetX += point.x - lastX;
   offsetY += point.y - lastY;
-
   lastX = point.x;
   lastY = point.y;
 
   drawPhoto();
 });
 
-canvasWrap.addEventListener("pointerup", () => {
-  dragging = false;
-});
-
-canvasWrap.addEventListener("pointercancel", () => {
-  dragging = false;
-});
+canvasWrap.addEventListener("pointerup", () => dragging = false);
+canvasWrap.addEventListener("pointercancel", () => dragging = false);
 
 downloadBtn.addEventListener("click", async () => {
   if (!photo || !frameLoaded) {
@@ -721,7 +694,6 @@ downloadBtn.addEventListener("click", async () => {
   output.height = SIZE;
 
   const outputCtx = output.getContext("2d");
-
   outputCtx.drawImage(photoCanvas, 0, 0);
   outputCtx.drawImage(frameCanvas, 0, 0);
 
@@ -749,7 +721,6 @@ downloadBtn.addEventListener("click", async () => {
 
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-
     link.href = url;
     link.download = "liviaedenic27.png";
 
@@ -760,6 +731,27 @@ downloadBtn.addEventListener("click", async () => {
     setTimeout(() => URL.revokeObjectURL(url), 3000);
   }, "image/png");
 });
+
+/* Scroll reveal motion */
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -35px 0px"
+  });
+
+  revealItems.forEach(item => revealObserver.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add("is-visible"));
+}
 
 drawPhoto();
 drawFrame();
