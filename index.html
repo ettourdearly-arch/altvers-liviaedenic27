@@ -32,20 +32,31 @@
 html {
   min-height: 100%;
   scroll-behavior: smooth;
+  background: #f8e8ec;
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   padding: 21px 17px;
   min-height: 100vh;
   color: var(--wine);
-  background-color: #f8e8ec;
-  background-image: url("background-2.JPEG");
-  background-size: 100% auto;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+  background: transparent;
   font-size: 18px;
+}
+
+/* ONE CONTINUOUS BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("background-2.JPEG");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
@@ -53,6 +64,7 @@ a {
 }
 
 .wrap {
+  position: relative;
   width: 100%;
   max-width: 460px;
   margin: 0 auto;
@@ -62,7 +74,7 @@ a {
 
 .info-card,
 .editor-card {
-  background: rgba(255,250,248,.94);
+  background: rgba(255,250,248,.82);
   border: 1px solid var(--line);
   border-radius: 27px;
   box-shadow: 0 10px 25px rgba(166,87,112,.07);
@@ -272,7 +284,7 @@ a {
   font-style: italic;
 }
 
-/* ORGANIC SVG VINES */
+/* VINES AND FLOWERS */
 
 .vine-art {
   display: block;
@@ -368,7 +380,7 @@ a {
   pointer-events: none;
 }
 
-/* SCROLL ANIMATION */
+/* SCROLL MOTION */
 
 .motion {
   opacity: 0;
@@ -441,8 +453,11 @@ a {
   to { opacity: .85; }
 }
 
+/* FOOTER */
+
 .footer-note {
   margin: 22px 8px 12px;
+  padding-bottom: 12px;
   color: var(--muted);
   font-size: 1rem;
   font-style: italic;
@@ -450,14 +465,16 @@ a {
   text-align: center;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media (max-width: 480px) {
   body {
     padding: 19px 17px;
-    background-size: 100% auto;
-    background-position: center top;
-    background-repeat: no-repeat;
+  }
+
+  body::before {
+    background-position: center center;
+    background-size: cover;
   }
 
   .info-card {
@@ -554,7 +571,7 @@ a {
     </p>
   </section>
 
-  <!-- TWIBBON EDITOR -->
+  <!-- TWIBBON MAKER -->
   <section class="editor-card motion">
     <div class="canvas-wrap" id="canvasWrap">
       <canvas id="photoCanvas" width="1080" height="1080"></canvas>
@@ -597,8 +614,7 @@ a {
          role="group" aria-label="Flowering vine links">
 
       <path class="vine-stem"
-        d="M12 204
-           C45 197 48 166 77 171
+        d="M12 204 C45 197 48 166 77 171
            C109 178 105 210 137 197
            C164 186 158 148 189 145
            C220 141 222 175 248 160
@@ -690,8 +706,7 @@ a {
          role="group" aria-label="Creative credits">
 
       <path class="vine-stem"
-        d="M12 178
-           C49 185 64 150 94 155
+        d="M12 178 C49 185 64 150 94 155
            C123 160 127 187 157 171
            C185 156 181 126 213 126
            C247 126 250 155 278 137
@@ -820,7 +835,6 @@ function drawPhoto() {
 
   const width = photo.naturalWidth * baseScale * zoom;
   const height = photo.naturalHeight * baseScale * zoom;
-
   const x = (SIZE - width) / 2 + offsetX;
   const y = (SIZE - height) / 2 + offsetY;
 
@@ -829,7 +843,6 @@ function drawPhoto() {
 
 photoInput.addEventListener("change", event => {
   const file = event.target.files[0];
-
   if (!file) return;
 
   if (!file.type.startsWith("image/")) {
@@ -844,7 +857,6 @@ photoInput.addEventListener("change", event => {
 
     image.onload = () => {
       photo = image;
-
       baseScale = Math.max(
         SIZE / photo.naturalWidth,
         SIZE / photo.naturalHeight
@@ -864,10 +876,7 @@ photoInput.addEventListener("change", event => {
       drawFrame();
     };
 
-    image.onerror = () => {
-      alert("Please choose another photo.");
-    };
-
+    image.onerror = () => alert("Please choose another photo.");
     image.src = reader.result;
   };
 
@@ -889,7 +898,6 @@ resetBtn.addEventListener("click", () => {
 
   zoomRange.value = "100";
   zoomVal.textContent = "100%";
-
   drawPhoto();
 });
 
@@ -908,7 +916,6 @@ canvasWrap.addEventListener("pointerdown", event => {
   dragging = true;
 
   const point = getCanvasPoint(event);
-
   lastX = point.x;
   lastY = point.y;
 
@@ -944,12 +951,10 @@ downloadBtn.addEventListener("click", () => {
   }
 
   const output = document.createElement("canvas");
-
   output.width = SIZE;
   output.height = SIZE;
 
   const ctx = output.getContext("2d");
-
   ctx.drawImage(photoCanvas, 0, 0);
   ctx.drawImage(frameCanvas, 0, 0);
 
