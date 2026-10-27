@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f9e9ed">
+<meta name="theme-color" content="#f8e8ec">
 <title>Livia's Edenic Arbor — #LiviaEdenic27</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,31 +33,20 @@ html {
 
 body {
   margin: 0;
-  padding: 25px 22px;
+  padding: 24px 18px;
   min-height: 100vh;
   color: var(--wine);
-  background-color: #f9e9ed;
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(255, 246, 245, .18),
-      rgba(246, 229, 234, .16)
-    ),
-    url("background.jpg");
-  background-size: cover;
+  background-color: #f8e8ec;
+
+  /* Show the original background without blur or a color overlay.
+     Scale the whole image to the viewport width to avoid cropping
+     its sides on phones. Repeat vertically if needed. */
+  background-image: url("background.jpg");
+  background-size: 100% auto;
   background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-repeat: repeat-y;
+  background-attachment: scroll;
   font-size: 18px;
-}
-
-button,
-input {
-  font: inherit;
-}
-
-a {
-  color: inherit;
 }
 
 .wrap {
@@ -74,7 +63,7 @@ a {
   background: rgba(255, 250, 248, .96);
   border: 1px solid var(--line);
   border-radius: 30px;
-  box-shadow: 0 15px 35px rgba(166, 87, 112, .10);
+  box-shadow: 0 12px 28px rgba(166, 87, 112, .08);
   margin-bottom: 24px;
 }
 
@@ -108,20 +97,20 @@ a {
   font-size: 1rem;
   font-weight: 500;
   font-style: italic;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .campaign-date {
   margin: 17px 0 0;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   line-height: 1.5;
 }
 
 /* Twibbon maker */
 
 .card {
-  padding: 25px;
+  padding: 23px;
 }
 
 .canvas-wrap {
@@ -129,15 +118,8 @@ a {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 23px;
-  background-color: #fff1f3;
-  background-image:
-    linear-gradient(45deg, #fbe6e4 25%, transparent 25%),
-    linear-gradient(-45deg, #fbe6e4 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #fbe6e4 75%),
-    linear-gradient(-45deg, transparent 75%, #fbe6e4 75%);
-  background-size: 24px 24px;
-  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+  border-radius: 21px;
+  background: transparent;
   touch-action: none;
   cursor: grab;
 }
@@ -158,19 +140,19 @@ a {
 .controls {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 15px;
+  margin-top: 19px;
 }
 
 .file-btn {
   display: block;
   width: 100%;
-  padding: 15px 12px;
+  padding: 14px 12px;
   border: 2px solid var(--rose-light);
-  border-radius: 18px;
+  border-radius: 17px;
   background: #fff0f2;
   color: var(--wine);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
@@ -189,9 +171,9 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   color: var(--muted);
-  font-size: 1.12rem;
+  font-size: 1.08rem;
 }
 
 #zoomRange {
@@ -208,13 +190,13 @@ a {
 }
 
 .btn {
-  min-height: 78px;
-  padding: 12px 9px;
+  min-height: 72px;
+  padding: 11px 8px;
   border: 2px solid #e5dfb1;
-  border-radius: 19px;
+  border-radius: 18px;
   background: #f5f1df;
   color: var(--wine);
-  font-size: 1.12rem;
+  font-size: 1.08rem;
   font-weight: 700;
   line-height: 1.25;
   text-align: center;
@@ -223,7 +205,7 @@ a {
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .btn.download {
@@ -238,117 +220,87 @@ a {
 }
 
 .btn:disabled {
-  opacity: .5;
+  opacity: .48;
   cursor: not-allowed;
   transform: none;
 }
 
 .hint {
-  margin: 20px 0 0;
+  margin: 18px 0 0;
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.5;
+  font-size: 1.02rem;
+  line-height: 1.45;
   text-align: center;
 }
 
-/* Floral, petal-like link cards */
+/* Minimal celebrant and credit sections */
 
 .extra-card {
-  padding: 23px 22px;
+  padding: 19px;
+  margin-bottom: 19px;
+  border-radius: 25px;
+  box-shadow: 0 8px 22px rgba(166, 87, 112, .06);
 }
 
 .extra-card h3 {
-  margin: 0 0 17px;
+  margin: 0 0 13px;
   color: var(--wine);
-  font-size: 1.55rem;
+  font-size: 1.35rem;
   font-weight: 700;
   line-height: 1.3;
 }
 
-.link-item {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 17px 20px;
-  margin-top: 13px;
-  color: var(--wine);
-  text-decoration: none;
-  background: rgba(255, 239, 242, .85);
-  border: 1px solid rgba(248, 173, 193, .55);
-
-  /* Soft organic petal shape instead of square corners */
-  border-radius: 36px 25px 34px 24px / 25px 35px 24px 34px;
-
-  box-shadow: 0 5px 14px rgba(190, 93, 121, .045);
-  transition:
-    background .2s ease,
-    transform .2s ease,
-    box-shadow .2s ease;
-}
-
-.link-item:first-of-type {
-  margin-top: 0;
-}
-
-.link-item:hover {
-  background: rgba(255, 229, 236, .95);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(190, 93, 121, .08);
-}
-
-.link-item-title {
-  margin: 0 0 3px;
-  color: var(--wine);
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.link-item-desc {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.35;
-}
-
-/* Credits */
-
-.credit-intro {
-  margin: -5px 0 17px;
-  color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.5;
-}
-
+.link-item,
 .credit-item {
   display: block;
-  padding: 17px 20px;
-  margin-top: 13px;
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 10px;
+  color: var(--wine);
   text-decoration: none;
-  background: rgba(255, 239, 242, .85);
+  background: rgba(255, 239, 242, .88);
   border: 1px solid rgba(248, 173, 193, .55);
-  border-radius: 25px 36px 24px 34px / 34px 24px 35px 25px;
+
+  /* Soft, asymmetrical petal-like edges */
+  border-radius: 28px 20px 30px 22px / 20px 28px 22px 30px;
+
+  box-shadow: none;
   transition: background .2s ease, transform .2s ease;
 }
 
-.credit-item:hover {
-  background: #ffe8ee;
-  transform: translateY(-2px);
+.link-item:first-of-type,
+.credit-item:first-of-type {
+  margin-top: 0;
 }
 
+.link-item:hover,
+.credit-item:hover {
+  background: #ffe8ee;
+  transform: translateY(-1px);
+}
+
+.link-item-title,
 .credit-name {
-  margin: 0 0 4px;
+  margin: 0 0 3px;
   color: var(--wine);
-  font-size: 1.35rem;
+  font-size: 1.18rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
+.link-item-desc,
 .credit-desc {
   margin: 0;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1rem;
   line-height: 1.35;
+}
+
+.credit-intro {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.45;
 }
 
 .footer-note {
@@ -365,6 +317,11 @@ a {
 @media (max-width: 480px) {
   body {
     padding: 22px 18px;
+
+    /* Keep the background sharp on mobile. */
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: repeat-y;
     background-attachment: scroll;
   }
 
@@ -373,53 +330,56 @@ a {
   }
 
   .info-card {
-    padding: 27px 21px;
+    padding: 26px 20px;
+    border-radius: 28px;
   }
 
   .card {
-    padding: 22px 18px;
+    padding: 19px;
+    border-radius: 27px;
   }
 
   .extra-card {
-    padding: 22px 19px;
+    padding: 17px 16px;
+    border-radius: 24px;
   }
 
   .campaign-name {
-    font-size: 1.75rem;
+    font-size: 1.72rem;
   }
 
   .campaign-desc {
     font-size: .98rem;
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
   .campaign-date {
-    font-size: 1.03rem;
+    font-size: 1.02rem;
   }
 
   .canvas-wrap {
-    border-radius: 20px;
+    border-radius: 19px;
   }
 
   .btn {
-    min-height: 76px;
+    min-height: 69px;
     padding: 10px 7px;
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .extra-card h3 {
-    font-size: 1.45rem;
+    font-size: 1.25rem;
   }
 
   .link-item-title,
   .credit-name {
-    font-size: 1.25rem;
+    font-size: 1.13rem;
   }
 
   .link-item-desc,
   .credit-desc,
   .credit-intro {
-    font-size: 1.02rem;
+    font-size: .98rem;
   }
 }
 </style>
@@ -463,7 +423,7 @@ a {
 
     <div class="controls">
       <label class="file-btn" for="photoInput">
-        📷 Upload Photo
+        Upload Photo
       </label>
 
       <input id="photoInput" type="file" accept="image/*">
@@ -486,11 +446,11 @@ a {
 
       <div class="button-row">
         <button class="btn" id="resetBtn" disabled>
-          ↺ Reset Position
+          Reset Position
         </button>
 
         <button class="btn download" id="downloadBtn" disabled>
-          ⬇ Download HD
+          Download HD
         </button>
       </div>
     </div>
@@ -501,7 +461,7 @@ a {
     </p>
   </section>
 
-  <!-- CELEBRANT LINKS -->
+  <!-- FIND THE CELEBRANT -->
   <section class="extra-card">
     <h3>✧ Find the Celebrant</h3>
 
@@ -530,7 +490,7 @@ a {
     </a>
   </section>
 
-  <!-- CREDITS -->
+  <!-- GRATITUDE IN BLOOM -->
   <section class="extra-card">
     <h3>✿ Gratitude in Bloom</h3>
 
@@ -565,7 +525,7 @@ a {
   </section>
 
   <p class="footer-note">
-    A little garden of wishes, lovingly gathered for #LiviaEdenic27 ♡
+    <em>A bound anthology of gentle hopes, preserved for Livia Nunes ♡</em>
   </p>
 
 </div>
@@ -607,7 +567,7 @@ frame.onload = () => {
 
 frame.onerror = () => {
   console.error(
-    "Could not load twibbon.png. Check that it exists in the repository root."
+    "Unable to load twibbon.png. Check the filename and repository."
   );
 };
 
@@ -624,17 +584,8 @@ function drawFrame() {
 function drawPhoto() {
   photoCtx.clearRect(0, 0, SIZE, SIZE);
 
-  if (!photo) {
-    photoCtx.fillStyle = "#fff0f3";
-    photoCtx.fillRect(0, 0, SIZE, SIZE);
-
-    photoCtx.fillStyle = "#a77c89";
-    photoCtx.textAlign = "center";
-    photoCtx.font = "36px Georgia";
-    photoCtx.fillText("Your portrait will appear here", SIZE / 2, SIZE / 2);
-
-    return;
-  }
+  // Leave the canvas empty until a portrait is uploaded.
+  if (!photo) return;
 
   const width = photo.naturalWidth * baseScale * zoom;
   const height = photo.naturalHeight * baseScale * zoom;
@@ -656,7 +607,7 @@ photoInput.addEventListener("change", event => {
   if (!file) return;
 
   if (!file.type.startsWith("image/")) {
-    alert("Please choose a valid image file.");
+    alert("Please select a valid image file.");
     return;
   }
 
@@ -731,7 +682,6 @@ canvasWrap.addEventListener("pointerdown", event => {
   dragging = true;
 
   const point = getCanvasPoint(event);
-
   lastX = point.x;
   lastY = point.y;
 
@@ -762,7 +712,7 @@ canvasWrap.addEventListener("pointercancel", () => {
 
 downloadBtn.addEventListener("click", async () => {
   if (!photo || !frameLoaded) {
-    alert("Please upload a photo and wait for the twibbon frame to load.");
+    alert("Please upload a photo and wait for the frame to load.");
     return;
   }
 
@@ -791,7 +741,6 @@ downloadBtn.addEventListener("click", async () => {
           files: [file],
           title: "My #LiviaEdenic27 Twibbon"
         });
-
         return;
       } catch (error) {
         if (error.name === "AbortError") return;
