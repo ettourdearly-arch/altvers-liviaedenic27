@@ -20,12 +20,9 @@
   --sage: #718968;
   --leaf: #b5c8a5;
   --muted: #76495b;
-  --ivory: #fffaf6;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   min-height: 100%;
@@ -45,11 +42,7 @@ body {
   background: transparent;
 }
 
-/*
-  ONE FIXED WALLPAPER:
-  It stays behind the page while the content scrolls.
-  The image is never tiled, so there are no repeating seams.
-*/
+/* FULL-PAGE WALLPAPER */
 body::before {
   content: "";
   position: fixed;
@@ -57,7 +50,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-color: #f7e5e9;
-  background-image: url("background-2.JPEG");
+  background-image: url("background-2.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -141,9 +134,7 @@ a {
   cursor: grab;
 }
 
-.canvas-wrap:active {
-  cursor: grabbing;
-}
+.canvas-wrap:active { cursor: grabbing; }
 
 .canvas-wrap canvas {
   position: absolute;
@@ -154,10 +145,7 @@ a {
   touch-action: none;
 }
 
-#photoCanvas {
-  z-index: 1;
-}
-
+#photoCanvas { z-index: 1; }
 #frameCanvas {
   z-index: 2;
   pointer-events: none;
@@ -183,9 +171,7 @@ a {
   cursor: pointer;
 }
 
-#photoInput {
-  display: none;
-}
+#photoInput { display: none; }
 
 .zoom-label {
   display: flex;
@@ -219,7 +205,7 @@ a {
 
 .btn.download {
   border-color: #e6a9bd;
-  background: linear-gradient(120deg, #f5cbd7, #f6e1df, #e0e6c9);
+  background: linear-gradient(120deg,#f5cbd7,#f6e1df,#e0e6c9);
 }
 
 .btn:disabled {
@@ -281,24 +267,32 @@ a {
   text-shadow: 0 1px 0 #fffaf0, 0 0 5px rgba(255,250,240,.95);
 }
 
-/* VINE DRAWINGS */
+/* CONNECTED BOTANICAL VINES */
 
 .vine-art {
   display: block;
   width: 100%;
   height: auto;
-  margin: 5px auto 0;
+  margin: 8px auto 0;
   overflow: visible;
 }
 
-.vine-stem {
+.vine-stem,
+.hanging-stem,
+.label-connector {
   fill: none;
   stroke: #718968;
-  stroke-width: 2.6;
+  stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+}
+
+.hanging-stem { stroke-width: 1.8; }
+.label-connector {
+  stroke-width: 1.2;
+  opacity: .8;
 }
 
 .leaf {
@@ -308,7 +302,7 @@ a {
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  transform: scale(.15) rotate(-15deg);
+  transform: scale(.1) rotate(-15deg);
 }
 
 .leaf-vein {
@@ -319,24 +313,21 @@ a {
   opacity: 0;
 }
 
-.flower {
-  cursor: pointer;
+.bloom {
   opacity: 0;
-  outline: none;
   transform-box: fill-box;
   transform-origin: center;
-  transform: scale(.1) rotate(-15deg);
+  transform: scale(.05) rotate(-20deg);
+  cursor: pointer;
 }
 
-.flower-petals {
+.bloom-petals {
   transform-box: fill-box;
   transform-origin: center;
-  transition: transform .25s ease;
+  transition: transform .3s ease;
 }
 
-.flower:hover .flower-petals {
-  transform: scale(1.08);
-}
+.bloom:hover .bloom-petals { transform: scale(1.1); }
 
 .petal {
   fill: #f2bfd0;
@@ -344,9 +335,7 @@ a {
   stroke-width: 1;
 }
 
-.petal.alt {
-  fill: #ffdae5;
-}
+.petal.alt { fill: #ffdae5; }
 
 .flower-center {
   fill: #d9b95f;
@@ -381,50 +370,37 @@ a {
   pointer-events: none;
 }
 
-.flower:focus-visible .flower-center {
-  stroke: #51253a;
-  stroke-width: 2.5;
-}
-
-/* SCROLL REVEAL */
-
-.motion {
+.hanging-label {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .8s ease, transform .8s ease;
+  transform: translateY(-5px);
+  transition: opacity .6s ease, transform .6s ease;
 }
 
-.motion.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.garden.is-visible .vine-stem {
-  animation: drawVine 2.1s ease forwards;
+.garden.is-visible .vine-stem,
+.garden.is-visible .hanging-stem,
+.garden.is-visible .label-connector {
+  animation: drawVine 2.6s ease forwards;
 }
 
 .garden.is-visible .leaf {
-  animation: growLeaf .65s cubic-bezier(.2,1.5,.5,1) forwards;
+  animation: growLeaf .8s cubic-bezier(.2,1.5,.5,1) forwards;
 }
 
 .garden.is-visible .leaf-vein {
-  animation: showVein .5s ease forwards;
+  animation: showVein .7s ease forwards;
 }
 
-.garden.is-visible .flower {
-  animation: bloom .85s cubic-bezier(.2,1.5,.4,1) forwards;
+.garden.is-visible .bloom {
+  animation: bloomOpen 1.15s cubic-bezier(.2,1.5,.4,1) forwards;
 }
 
-.garden.is-visible .flower:nth-of-type(2) {
-  animation-delay: .25s;
-}
+.garden.is-visible .bloom-one { animation-delay: .65s; }
+.garden.is-visible .bloom-two { animation-delay: 1.1s; }
 
-.garden.is-visible .flower:nth-of-type(3) {
-  animation-delay: .5s;
-}
-
-.garden.is-visible .flower:nth-of-type(4) {
-  animation-delay: .75s;
+.garden.is-visible .hanging-label {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.25s;
 }
 
 @keyframes drawVine {
@@ -438,14 +414,14 @@ a {
   }
 }
 
-@keyframes bloom {
+@keyframes bloomOpen {
   0% {
     opacity: 0;
-    transform: scale(.1) rotate(-15deg);
+    transform: scale(.05) rotate(-20deg);
   }
-  70% {
+  60% {
     opacity: 1;
-    transform: scale(1.12) rotate(3deg);
+    transform: scale(1.15) rotate(5deg);
   }
   100% {
     opacity: 1;
@@ -453,9 +429,7 @@ a {
   }
 }
 
-@keyframes showVein {
-  to { opacity: 1; }
-}
+@keyframes showVein { to { opacity: 1; } }
 
 /* FOOTER */
 
@@ -471,29 +445,32 @@ a {
   text-shadow: 0 1px 0 #fffaf0, 0 0 5px rgba(255,250,240,.95);
 }
 
+/* SCROLL ANIMATION */
+
+.motion {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.motion.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* MOBILE */
 
 @media (max-width: 480px) {
-  body {
-    padding: 19px 17px 25px;
-  }
+  body { padding: 19px 17px 25px; }
 
   body::before {
     background-position: center center;
     background-size: cover;
   }
 
-  .intro {
-    padding: 22px 18px;
-  }
-
-  .campaign-name {
-    font-size: 1.55rem;
-  }
-
-  .campaign-desc {
-    font-size: .97rem;
-  }
+  .intro { padding: 22px 18px; }
+  .campaign-name { font-size: 1.55rem; }
+  .campaign-desc { font-size: .97rem; }
 
   .garden {
     margin-right: -7px;
@@ -506,23 +483,13 @@ a {
     letter-spacing: .12em;
   }
 
-  .garden-title {
-    font-size: 1.47rem;
-  }
-
-  .garden-subtitle {
-    font-size: 1.05rem;
-  }
-
-  .flower-label {
-    font-size: 12px;
-  }
+  .garden-title { font-size: 1.47rem; }
+  .garden-subtitle { font-size: 1.05rem; }
+  .flower-label { font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 
   .motion {
     opacity: 1;
@@ -530,22 +497,26 @@ a {
     transition: none;
   }
 
-  .vine-stem {
+  .vine-stem,
+  .hanging-stem,
+  .label-connector {
     stroke-dashoffset: 0;
     animation: none !important;
   }
 
-  .flower,
+  .bloom,
   .leaf {
     opacity: 1;
     transform: none;
     animation: none !important;
   }
 
-  .leaf-vein {
+  .hanging-label {
     opacity: 1;
-    animation: none !important;
+    transform: none;
   }
+
+  .leaf-vein { opacity: 1; }
 }
 </style>
 </head>
@@ -614,87 +585,112 @@ a {
       <p class="garden-subtitle">follow the blossoms to find your way ♡</p>
     </div>
 
-    <svg class="vine-art" viewBox="0 0 360 280"
-         role="group" aria-label="Links to the celebrant">
+    <svg class="vine-art" viewBox="0 0 360 310"
+         role="group" aria-label="A flowering vine with celebrant links">
 
+      <!-- Main continuous branch -->
       <path class="vine-stem"
-        d="M-18 224
-           C20 220 35 184 66 183
-           C99 182 108 220 141 205
-           C178 188 169 145 203 140
-           C238 135 249 177 278 157
-           C312 134 300 91 330 76
-           C344 69 355 71 376 54"/>
+        d="M-15 265
+           C25 263 38 228 70 225
+           C105 222 118 255 148 237
+           C181 218 169 181 199 171
+           C231 160 249 195 274 175
+           C306 151 294 111 326 91
+           C343 80 355 87 375 68"/>
 
-      <path class="vine-stem"
-        d="M66 183 C57 158 43 150 29 143
-           M141 205 C126 226 128 246 151 257
-           M203 140 C200 111 211 94 232 83
-           M278 157 C292 179 316 182 337 166
-           M330 76 C325 52 335 35 355 24"/>
+      <!-- Branches growing from the main stem -->
+      <path class="hanging-stem"
+        d="M70 225 C55 194 59 172 82 153
+           C96 143 105 138 111 119"/>
 
-      <path class="leaf" d="M61 182 Q37 160 28 174 Q39 192 61 182Z"/>
-      <path class="leaf-vein" d="M32 175 Q46 181 61 182"/>
+      <path class="hanging-stem"
+        d="M199 171 C190 139 203 113 226 96
+           C240 85 249 78 253 57"/>
 
-      <path class="leaf" d="M104 194 Q124 173 135 185 Q128 204 104 194Z"/>
-      <path class="leaf-vein" d="M130 186 Q117 191 104 194"/>
+      <path class="hanging-stem"
+        d="M148 237 C130 259 135 278 159 291"/>
 
-      <path class="leaf" d="M141 205 Q118 204 116 220 Q132 231 141 205Z"/>
-      <path class="leaf-vein" d="M120 219 Q132 213 141 205"/>
+      <path class="hanging-stem"
+        d="M326 91 C316 62 329 39 350 23"/>
 
-      <path class="leaf" d="M203 140 Q181 119 171 133 Q180 149 203 140Z"/>
-      <path class="leaf-vein" d="M176 134 Q189 140 203 140"/>
+      <!-- Leaves -->
+      <path class="leaf" d="M65 224 Q40 198 29 213 Q40 232 65 224Z"/>
+      <path class="leaf-vein" d="M33 214 Q49 221 65 224"/>
 
-      <path class="leaf" d="M278 157 Q300 135 310 149 Q302 166 278 157Z"/>
-      <path class="leaf-vein" d="M306 150 Q292 156 278 157"/>
+      <path class="leaf" d="M108 239 Q130 216 142 229 Q132 248 108 239Z"/>
+      <path class="leaf-vein" d="M137 230 Q122 235 108 239"/>
 
-      <path class="leaf" d="M330 76 Q308 57 300 70 Q310 86 330 76Z"/>
-      <path class="leaf-vein" d="M304 71 Q318 76 330 76"/>
+      <path class="leaf" d="M192 175 Q168 153 159 168 Q171 185 192 175Z"/>
+      <path class="leaf-vein" d="M164 169 Q178 174 192 175"/>
 
-      <a href="https://t.me/ettourdearly"
+      <path class="leaf" d="M269 176 Q291 153 303 167 Q293 184 269 176Z"/>
+      <path class="leaf-vein" d="M298 168 Q283 174 269 176"/>
+
+      <path class="leaf" d="M326 91 Q301 73 294 86 Q305 102 326 91Z"/>
+      <path class="leaf-vein" d="M299 87 Q313 91 326 91"/>
+
+      <!-- Charmaine -->
+      <a class="flower-link"
+         href="https://t.me/ettourdearly"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Visit Charmaine Fernsby on Telegram">
-        <g class="flower" tabindex="0" role="link">
-          <g class="flower-petals">
-            <ellipse class="petal" cx="91" cy="127" rx="10" ry="18"/>
-            <ellipse class="petal alt" cx="91" cy="127" rx="10" ry="18" transform="rotate(45 91 127)"/>
-            <ellipse class="petal" cx="91" cy="127" rx="10" ry="18" transform="rotate(90 91 127)"/>
-            <ellipse class="petal alt" cx="91" cy="127" rx="10" ry="18" transform="rotate(135 91 127)"/>
-            <circle class="flower-center" cx="91" cy="127" r="7"/>
+         aria-label="Charmaine Fernsby">
+
+        <g class="bloom bloom-one">
+          <g class="bloom-petals">
+            <ellipse class="petal" cx="111" cy="119" rx="11" ry="19"/>
+            <ellipse class="petal alt" cx="111" cy="119" rx="11" ry="19" transform="rotate(45 111 119)"/>
+            <ellipse class="petal" cx="111" cy="119" rx="11" ry="19" transform="rotate(90 111 119)"/>
+            <ellipse class="petal alt" cx="111" cy="119" rx="11" ry="19" transform="rotate(135 111 119)"/>
+            <circle class="flower-center" cx="111" cy="119" r="7"/>
           </g>
-          <text class="flower-label" x="91" y="89">Charmaine Fernsby</text>
-          <text class="flower-caption" x="91" y="103">personal Telegram</text>
+        </g>
+
+        <path class="label-connector"
+          d="M111 139 C108 151 108 155 108 165"/>
+
+        <g class="hanging-label">
+          <text class="flower-label" x="108" y="180">Charmaine Fernsby</text>
+          <text class="flower-caption" x="108" y="194">personal Telegram</text>
         </g>
       </a>
 
-      <a href="https://t.me/faaierie"
+      <!-- Jubilee Channel -->
+      <a class="flower-link"
+         href="https://t.me/faaierie"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Visit the Jubilee Celebration Channel">
-        <g class="flower" tabindex="0" role="link">
-          <g class="flower-petals">
-            <ellipse class="petal alt" cx="232" cy="83" rx="10" ry="18"/>
-            <ellipse class="petal" cx="232" cy="83" rx="10" ry="18" transform="rotate(45 232 83)"/>
-            <ellipse class="petal alt" cx="232" cy="83" rx="10" ry="18" transform="rotate(90 232 83)"/>
-            <ellipse class="petal" cx="232" cy="83" rx="10" ry="18" transform="rotate(135 232 83)"/>
-            <circle class="flower-center" cx="232" cy="83" r="7"/>
+         aria-label="Jubilee Celebration Channel">
+
+        <g class="bloom bloom-two">
+          <g class="bloom-petals">
+            <ellipse class="petal alt" cx="253" cy="57" rx="11" ry="19"/>
+            <ellipse class="petal" cx="253" cy="57" rx="11" ry="19" transform="rotate(45 253 57)"/>
+            <ellipse class="petal alt" cx="253" cy="57" rx="11" ry="19" transform="rotate(90 253 57)"/>
+            <ellipse class="petal" cx="253" cy="57" rx="11" ry="19" transform="rotate(135 253 57)"/>
+            <circle class="flower-center" cx="253" cy="57" r="7"/>
           </g>
-          <text class="flower-label" x="232" y="44">Jubilee Channel</text>
-          <text class="flower-caption" x="232" y="58">celebration sanctuary</text>
+        </g>
+
+        <path class="label-connector"
+          d="M253 77 C250 88 249 92 249 102"/>
+
+        <g class="hanging-label">
+          <text class="flower-label" x="249" y="117">Jubilee Channel</text>
+          <text class="flower-caption" x="249" y="131">celebration sanctuary</text>
         </g>
       </a>
 
-      <g class="flower" aria-hidden="true">
-        <g class="flower-petals">
-          <ellipse class="petal" cx="355" cy="24" rx="6" ry="11"/>
-          <ellipse class="petal alt" cx="355" cy="24" rx="6" ry="11" transform="rotate(60 355 24)"/>
-          <ellipse class="petal" cx="355" cy="24" rx="6" ry="11" transform="rotate(120 355 24)"/>
-          <circle class="flower-center" cx="355" cy="24" r="4"/>
+      <!-- Small wildflower -->
+      <g class="bloom bloom-two" aria-hidden="true">
+        <g class="bloom-petals">
+          <ellipse class="petal" cx="350" cy="23" rx="7" ry="12"/>
+          <ellipse class="petal alt" cx="350" cy="23" rx="7" ry="12" transform="rotate(60 350 23)"/>
+          <ellipse class="petal" cx="350" cy="23" rx="7" ry="12" transform="rotate(120 350 23)"/>
+          <circle class="flower-center" cx="350" cy="23" r="4"/>
         </g>
       </g>
 
-      <text x="17" y="252"
-        style="fill:#704052;font:italic 12px 'Cormorant Garamond',serif;
-        paint-order:stroke;stroke:rgba(255,248,239,.95);stroke-width:3px">
+      <text x="18" y="286"
+        style="fill:#704052;font:italic 12px 'Cormorant Garamond',serif;paint-order:stroke;stroke:rgba(255,248,239,.95);stroke-width:3px">
         a flowering path
       </text>
     </svg>
@@ -708,73 +704,100 @@ a {
       <p class="garden-subtitle">each blossom holds a little gratitude ♡</p>
     </div>
 
-    <svg class="vine-art" viewBox="0 0 360 250"
-         role="group" aria-label="Creative credits">
+    <svg class="vine-art" viewBox="0 0 360 300"
+         role="group" aria-label="A flowering branch of gratitude">
 
+      <!-- Main branch -->
       <path class="vine-stem"
-        d="M-18 202
-           C23 211 42 178 75 180
-           C111 182 118 216 151 199
-           C183 182 180 143 215 139
-           C250 135 261 175 291 155
-           C323 135 330 129 376 102"/>
+        d="M-15 262
+           C27 269 42 232 77 230
+           C112 227 124 260 156 239
+           C187 219 179 180 212 172
+           C246 163 259 198 290 177
+           C322 155 335 155 375 127"/>
 
-      <path class="vine-stem"
-        d="M75 180 C66 151 75 132 95 120
-           M151 199 C140 219 145 237 165 246
-           M215 139 C211 111 225 92 246 83
-           M291 155 C307 177 330 180 350 165"/>
+      <!-- Connected branches -->
+      <path class="hanging-stem"
+        d="M77 230 C66 202 76 178 95 160
+           C105 151 111 143 116 126"/>
 
-      <path class="leaf" d="M73 180 Q51 160 41 174 Q51 190 73 180Z"/>
-      <path class="leaf-vein" d="M45 175 Q59 180 73 180"/>
+      <path class="hanging-stem"
+        d="M212 172 C206 141 220 114 244 96
+           C255 88 264 79 269 59"/>
 
-      <path class="leaf" d="M151 199 Q128 193 124 210 Q139 221 151 199Z"/>
-      <path class="leaf-vein" d="M128 208 Q141 205 151 199"/>
+      <path class="hanging-stem"
+        d="M156 239 C142 259 146 278 169 290"/>
 
-      <path class="leaf" d="M215 139 Q193 119 183 132 Q193 148 215 139Z"/>
-      <path class="leaf-vein" d="M188 133 Q201 139 215 139"/>
+      <!-- Leaves -->
+      <path class="leaf" d="M73 230 Q49 207 39 220 Q49 239 73 230Z"/>
+      <path class="leaf-vein" d="M43 222 Q57 228 73 230"/>
 
-      <path class="leaf" d="M291 155 Q311 133 322 147 Q314 165 291 155Z"/>
-      <path class="leaf-vein" d="M318 148 Q304 154 291 155"/>
+      <path class="leaf" d="M153 240 Q131 221 121 237 Q134 252 153 240Z"/>
+      <path class="leaf-vein" d="M126 238 Q140 243 153 240"/>
 
-      <a href="https://t.me/artlucas"
+      <path class="leaf" d="M209 174 Q186 151 177 165 Q188 182 209 174Z"/>
+      <path class="leaf-vein" d="M182 166 Q196 172 209 174"/>
+
+      <path class="leaf" d="M288 178 Q309 155 321 168 Q311 186 288 178Z"/>
+      <path class="leaf-vein" d="M316 169 Q302 175 288 178"/>
+
+      <!-- Artlucas -->
+      <a class="flower-link"
+         href="https://t.me/artlucas"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Visit artlucas on Telegram">
-        <g class="flower" tabindex="0" role="link">
-          <g class="flower-petals">
-            <ellipse class="petal alt" cx="95" cy="120" rx="10" ry="18"/>
-            <ellipse class="petal" cx="95" cy="120" rx="10" ry="18" transform="rotate(45 95 120)"/>
-            <ellipse class="petal alt" cx="95" cy="120" rx="10" ry="18" transform="rotate(90 95 120)"/>
-            <ellipse class="petal" cx="95" cy="120" rx="10" ry="18" transform="rotate(135 95 120)"/>
-            <circle class="flower-center" cx="95" cy="120" r="7"/>
+         aria-label="artlucas">
+
+        <g class="bloom bloom-one">
+          <g class="bloom-petals">
+            <ellipse class="petal alt" cx="116" cy="126" rx="11" ry="19"/>
+            <ellipse class="petal" cx="116" cy="126" rx="11" ry="19" transform="rotate(45 116 126)"/>
+            <ellipse class="petal alt" cx="116" cy="126" rx="11" ry="19" transform="rotate(90 116 126)"/>
+            <ellipse class="petal" cx="116" cy="126" rx="11" ry="19" transform="rotate(135 116 126)"/>
+            <circle class="flower-center" cx="116" cy="126" r="7"/>
           </g>
-          <text class="flower-label" x="95" y="82">@artlucas</text>
-          <text class="flower-caption" x="95" y="96">artistry</text>
+        </g>
+
+        <path class="label-connector"
+          d="M116 146 C112 158 110 162 110 171"/>
+
+        <g class="hanging-label">
+          <text class="flower-label" x="110" y="186">@artlucas</text>
+          <text class="flower-caption" x="110" y="200">artistry</text>
         </g>
       </a>
 
-      <a href="https://t.me/trinketslab"
+      <!-- Trinkets Lab -->
+      <a class="flower-link"
+         href="https://t.me/trinketslab"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Visit Trinkets Lab on Telegram">
-        <g class="flower" tabindex="0" role="link">
-          <g class="flower-petals">
-            <ellipse class="petal" cx="246" cy="83" rx="10" ry="18"/>
-            <ellipse class="petal alt" cx="246" cy="83" rx="10" ry="18" transform="rotate(45 246 83)"/>
-            <ellipse class="petal" cx="246" cy="83" rx="10" ry="18" transform="rotate(90 246 83)"/>
-            <ellipse class="petal alt" cx="246" cy="83" rx="10" ry="18" transform="rotate(135 246 83)"/>
-            <circle class="flower-center" cx="246" cy="83" r="7"/>
+         aria-label="Trinkets Lab">
+
+        <g class="bloom bloom-two">
+          <g class="bloom-petals">
+            <ellipse class="petal" cx="269" cy="59" rx="11" ry="19"/>
+            <ellipse class="petal alt" cx="269" cy="59" rx="11" ry="19" transform="rotate(45 269 59)"/>
+            <ellipse class="petal" cx="269" cy="59" rx="11" ry="19" transform="rotate(90 269 59)"/>
+            <ellipse class="petal alt" cx="269" cy="59" rx="11" ry="19" transform="rotate(135 269 59)"/>
+            <circle class="flower-center" cx="269" cy="59" r="7"/>
           </g>
-          <text class="flower-label" x="246" y="45">@trinketslab</text>
-          <text class="flower-caption" x="246" y="59">collaboration</text>
+        </g>
+
+        <path class="label-connector"
+          d="M269 79 C267 90 265 94 265 104"/>
+
+        <g class="hanging-label">
+          <text class="flower-label" x="265" y="119">@trinketslab</text>
+          <text class="flower-caption" x="265" y="133">collaboration</text>
         </g>
       </a>
 
-      <g class="flower" aria-hidden="true">
-        <g class="flower-petals">
-          <ellipse class="petal" cx="165" cy="246" rx="5" ry="9"/>
-          <ellipse class="petal alt" cx="165" cy="246" rx="5" ry="9" transform="rotate(60 165 246)"/>
-          <ellipse class="petal" cx="165" cy="246" rx="5" ry="9" transform="rotate(120 165 246)"/>
-          <circle class="flower-center" cx="165" cy="246" r="3.5"/>
+      <!-- Small wildflower -->
+      <g class="bloom bloom-two" aria-hidden="true">
+        <g class="bloom-petals">
+          <ellipse class="petal" cx="169" cy="290" rx="6" ry="10"/>
+          <ellipse class="petal alt" cx="169" cy="290" rx="6" ry="10" transform="rotate(60 169 290)"/>
+          <ellipse class="petal" cx="169" cy="290" rx="6" ry="10" transform="rotate(120 169 290)"/>
+          <circle class="flower-center" cx="169" cy="290" r="4"/>
         </g>
       </g>
     </svg>
@@ -829,7 +852,9 @@ frame.src = "twibbon.png";
 
 function drawFrame() {
   frameCtx.clearRect(0, 0, SIZE, SIZE);
-  if (frameLoaded) frameCtx.drawImage(frame, 0, 0, SIZE, SIZE);
+  if (frameLoaded) {
+    frameCtx.drawImage(frame, 0, 0, SIZE, SIZE);
+  }
 }
 
 function drawPhoto() {
@@ -900,7 +925,6 @@ resetBtn.addEventListener("click", () => {
   offsetY = 0;
   zoomRange.value = "100";
   zoomVal.textContent = "100%";
-
   drawPhoto();
 });
 
@@ -920,7 +944,6 @@ canvasWrap.addEventListener("pointerdown", event => {
   const point = getCanvasPoint(event);
   lastX = point.x;
   lastY = point.y;
-
   canvasWrap.setPointerCapture(event.pointerId);
 });
 
