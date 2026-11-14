@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -969,6 +968,8 @@ canvasWrap.addEventListener("pointercancel", () => {
   dragging = false;
 });
 
+/* DOWNLOAD HD — SHARE TO PHONE WHEN SUPPORTED */
+
 downloadBtn.addEventListener("click", () => {
   if (!photo || !frameLoaded) {
     alert("Please upload a photo and wait for the frame to load.");
@@ -983,23 +984,46 @@ downloadBtn.addEventListener("click", () => {
   ctx.drawImage(photoCanvas, 0, 0);
   ctx.drawImage(frameCanvas, 0, 0);
 
-  output.toBlob(blob => {
+  output.toBlob(async blob => {
     if (!blob) {
       alert("Could not create the image. Please try again.");
       return;
+    }
+
+    const filename = "livianunesbirthday.png";
+    const file = new File([blob], filename, {
+      type: "image/png"
+    });
+
+    if (
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare({ files: [file] })
+    ) {
+      try {
+        await navigator.share({
+          files: [file],
+          title: "Livia Nunes Birthday",
+          text: "A little birthday keepsake for Livia ♡"
+        });
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") return;
+        console.warn("File sharing is unavailable:", error);
+      }
     }
 
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
 
     link.href = url;
-    link.download = "liviaedenic27.png";
+    link.download = filename;
 
     document.body.appendChild(link);
     link.click();
     link.remove();
 
-    setTimeout(() => URL.revokeObjectURL(url), 5000);
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
   }, "image/png");
 });
 
